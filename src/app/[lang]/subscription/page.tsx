@@ -1,0 +1,267 @@
+'use client';
+
+import React, { useState, useRef, use } from 'react';
+import { TRANSLATIONS, Language } from '@/data/content';
+import { usePaywall } from '@/context/PaywallContext';
+import { Check, Sparkles, ShieldCheck, Info, ExternalLink, ArrowDown } from 'lucide-react';
+
+export default function SubscriptionPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const resolvedParams = use(params);
+  const lang: Language = resolvedParams.lang === 'he' ? 'he' : 'en';
+  const t = TRANSLATIONS[lang].subscriptionPage;
+  const { setSubscriber } = usePaywall();
+
+  const [showForm, setShowForm] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    email: '',
+    phone: '',
+    children: '2',
+    cityState: '',
+  });
+
+  const formRef = useRef<HTMLDivElement>(null);
+
+  const handleJoinClick = () => {
+    setShowForm(true);
+    setTimeout(() => {
+      formRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+    setSubscriber(true);
+  };
+
+  return (
+    <div className="w-full">
+      {/* Header Title */}
+      <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3 bg-gradient-to-r from-white via-amber-100 to-amber-400 bg-clip-text text-transparent">
+          {t.headerTitle}
+        </h1>
+        <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+          {t.headerSubtitle}
+        </p>
+      </div>
+
+      {/* Pricing Card Area */}
+      <div className="max-w-lg mx-auto mb-12 sm:mb-16">
+        <div className="relative bg-slate-900/90 border-2 border-amber-400/60 rounded-3xl p-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.6),0_0_40px_rgba(245,158,11,0.25)] backdrop-blur-xl">
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 to-amber-600 text-slate-950 font-black text-xs py-1.5 px-5 rounded-full shadow-lg whitespace-nowrap">
+            {lang === 'he' ? 'המסלול המומלץ למשפחות' : 'Most Popular Choice'}
+          </div>
+
+          <h2 className="text-xl sm:text-2xl font-black text-white text-center mt-3 mb-3">
+            {t.card.planName}
+          </h2>
+
+          <div className="flex items-baseline justify-center gap-2 mb-2">
+            <span className="text-4xl sm:text-5xl font-black text-amber-300">
+              {t.card.price}
+            </span>
+            <span className="text-sm sm:text-base text-slate-400 font-bold">
+              {t.card.priceFrequency}
+            </span>
+          </div>
+
+          <div className="text-center text-xs sm:text-sm text-amber-200/80 mb-6 font-semibold">
+            {t.card.subCaption}
+          </div>
+
+          {/* Core Value Propositions */}
+          <ul className="flex flex-col gap-3.5 mb-8 list-none">
+            {t.card.bullets.map((bullet, idx) => (
+              <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-200 leading-relaxed">
+                <span className="flex-shrink-0 w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mt-0.5 border border-emerald-400/40">
+                  <Check size={13} strokeWidth={3} />
+                </span>
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
+
+          {/* Pricing Card Action Button */}
+          <button
+            type="button"
+            onClick={handleJoinClick}
+            className="w-full flex items-center justify-center gap-2.5 py-4 px-6 rounded-2xl font-black text-base sm:text-lg bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 shadow-xl hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
+            id="join-now-btn"
+          >
+            <Sparkles size={20} />
+            <span>{t.card.actionBtn}</span>
+            <ArrowDown size={18} />
+          </button>
+
+          {/* Future Extension Slot */}
+          <div className="mt-8 pt-6 border-t border-white/10 bg-black/20 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 p-6 rounded-b-3xl">
+            <div className="flex items-center justify-between gap-2 mb-1.5">
+              <span className="py-0.5 px-2.5 rounded-md text-[11px] font-black bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                {t.premiumSlot.badge}
+              </span>
+              <span className="text-sm font-bold text-white">
+                {t.premiumSlot.title}
+              </span>
+            </div>
+            <div className="text-base font-black text-amber-300 mb-1">
+              {t.premiumSlot.price}
+            </div>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              {t.premiumSlot.desc}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Subscriber Intake Form */}
+      {showForm && (
+        <div
+          className="max-w-xl mx-auto bg-slate-900/95 border border-amber-500/40 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-xl mb-14 animate-fadeIn"
+          ref={formRef}
+          id="intake-form-section"
+        >
+          {!formSubmitted ? (
+            <>
+              <div className="text-center mb-6 sm:mb-8">
+                <div className="inline-flex p-3 rounded-2xl bg-amber-500/20 text-amber-300 mb-3 border border-amber-400/40">
+                  <ShieldCheck size={32} />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-black text-white mb-2">
+                  {t.form.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300">
+                  {t.form.subtitle}
+                </p>
+              </div>
+
+              <form onSubmit={handleFormSubmit} className="space-y-4">
+                {/* Email address field */}
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs sm:text-sm font-bold text-amber-300" htmlFor="email-field">
+                    {t.form.email}
+                  </label>
+                  <input
+                    id="email-field"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="family@example.com"
+                    className="w-full py-3 px-4 rounded-xl bg-slate-800/80 border border-slate-700 text-white text-base placeholder-slate-400 focus:border-amber-400 focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                  />
+                </div>
+
+                {/* Phone number field */}
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs sm:text-sm font-bold text-amber-300" htmlFor="phone-field">
+                    {t.form.phone}
+                  </label>
+                  <input
+                    id="phone-field"
+                    name="phone"
+                    type="tel"
+                    required
+                    placeholder="+1 (555) 000-0000"
+                    className="w-full py-3 px-4 rounded-xl bg-slate-800/80 border border-slate-700 text-white text-base placeholder-slate-400 focus:border-amber-400 focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                  />
+                </div>
+
+                {/* Number of children in the family field */}
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs sm:text-sm font-bold text-amber-300" htmlFor="children-field">
+                    {t.form.children}
+                  </label>
+                  <select
+                    id="children-field"
+                    name="children"
+                    className="w-full py-3 px-4 rounded-xl bg-slate-800/80 border border-slate-700 text-white text-base focus:border-amber-400 focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
+                    value={formData.children}
+                    onChange={handleInputChange}
+                  >
+                    <option value="1" className="bg-slate-900 text-white">1</option>
+                    <option value="2" className="bg-slate-900 text-white">2</option>
+                    <option value="3" className="bg-slate-900 text-white">3</option>
+                    <option value="4" className="bg-slate-900 text-white">4</option>
+                    <option value="5+" className="bg-slate-900 text-white">5+</option>
+                  </select>
+                </div>
+
+                {/* City & State field */}
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs sm:text-sm font-bold text-amber-300" htmlFor="cityState-field">
+                    {t.form.cityState}
+                  </label>
+                  <input
+                    id="cityState-field"
+                    name="cityState"
+                    type="text"
+                    required
+                    placeholder="Brooklyn, NY"
+                    className="w-full py-3 px-4 rounded-xl bg-slate-800/80 border border-slate-700 text-white text-base placeholder-slate-400 focus:border-amber-400 focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
+                    value={formData.cityState}
+                    onChange={handleInputChange}
+                  />
+                </div>
+
+                {/* Submit & Proceed Button */}
+                <button
+                  type="submit"
+                  className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl font-black text-base sm:text-lg bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 shadow-xl mt-4 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
+                  id="submit-proceed-btn"
+                >
+                  <ExternalLink size={20} />
+                  <span>{t.form.submitBtn}</span>
+                </button>
+
+                {/* Note for Developer: Only visible in dev mode */}
+                {process.env.NODE_ENV === 'development' && (
+                  <div className="mt-4 p-3.5 rounded-xl bg-sky-950/40 border border-sky-500/30 flex items-center gap-2.5 text-xs text-sky-300">
+                    <Info size={18} className="flex-shrink-0" />
+                    <span>{t.form.developerNote}</span>
+                  </div>
+                )}
+              </form>
+            </>
+          ) : (
+            <div className="text-center py-6 sm:py-8 px-2 animate-fadeIn">
+              <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4 border border-emerald-400">
+                <Check size={36} strokeWidth={3} />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black text-white mb-2">
+                {t.form.successTitle}
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed max-w-md mx-auto">
+                {t.form.successMsg}
+              </p>
+              <div className="bg-emerald-950/40 border border-emerald-500/40 rounded-xl p-4 text-emerald-300 text-xs sm:text-sm mb-6 max-w-md mx-auto">
+                ✨ {lang === 'he' ? 'מצב מנוי הופעל עבור בדיקת הפרוטוטייפ! כל הסרטונים והפעילויות כעת פתוחים עבורך.' : 'Active Subscriber mode is now enabled for prototype testing! All videos and craft sheets are unlocked.'}
+              </div>
+              <a
+                href={`/${lang}/videos`}
+                className="inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl font-black text-sm sm:text-base bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 shadow-lg hover:scale-105 active:scale-95 transition-all"
+              >
+                <span>{lang === 'he' ? 'מעבר לספריית הסרטונים' : 'Go to Video Library'}</span>
+              </a>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
