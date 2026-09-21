@@ -9,21 +9,22 @@ export const metadata = {
 
 export default function SplashPage() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-10 text-center relative overflow-hidden bg-slate-950">
+    <main className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-10 text-center relative overflow-hidden bg-[#060c18]">
       {/* Master Background */}
       <div
-        className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat scale-[1.02]"
-        style={{ backgroundImage: "url('/images/master_background.jpg')" }}
+        className="fixed inset-0 -z-20 bg-cover bg-[center_top_5%] sm:bg-center bg-no-repeat scale-[1.01]"
+        style={{ backgroundImage: "url('/images/yachad-bg.jpeg')" }}
       />
-      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_50%_20%,rgba(11,17,32,0.65)_0%,rgba(9,14,26,0.88)_75%,rgba(6,9,17,0.96)_100%)] backdrop-blur-[2px] pointer-events-none" />
+      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-[#060c18]/65 via-[#091326]/75 to-[#060c18]/88 backdrop-blur-[2px] pointer-events-none" />
+      <div className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.12)_0%,rgba(6,12,24,0.6)_80%)] pointer-events-none" />
 
       {/* Hero Welcome Card */}
-      <div className="w-full max-w-3xl px-6 py-10 sm:p-12 md:p-16 rounded-3xl sm:rounded-[36px] bg-slate-950/85 border-2 border-amber-400/60 shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_60px_rgba(245,158,11,0.3)] backdrop-blur-2xl relative z-10 animate-fadeIn my-auto">
+      <div className="w-full max-w-3xl px-6 py-10 sm:p-12 md:p-16 rounded-3xl sm:rounded-[36px] bg-[#091224]/85 border-2 border-amber-400/60 shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_50px_rgba(245,158,11,0.25)] backdrop-blur-2xl relative z-10 animate-fadeIn my-auto">
         <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto mb-5 sm:mb-6 rounded-2xl md:rounded-3xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-slate-950 flex items-center justify-center shadow-[0_0_35px_rgba(245,158,11,0.6)] border-2 border-white/40">
           <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />
         </div>
 
-        <h1 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight mb-2 sm:mb-3 bg-gradient-to-r from-white via-amber-100 to-amber-400 bg-clip-text text-transparent">
+        <h1 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight mb-2 sm:mb-3 bg-gradient-to-r from-white via-amber-100 to-amber-300 bg-clip-text text-transparent">
           Yachad • Holy Tales for Jewish Kids
         </h1>
 
@@ -34,7 +35,7 @@ export default function SplashPage() {
           יחד • סיפורי צדיקים לילדים
         </h2>
 
-        <p className="text-sm sm:text-base md:text-lg max-w-xl mx-auto mb-6 sm:mb-8 text-slate-300 leading-relaxed">
+        <p className="text-sm sm:text-base md:text-lg max-w-xl mx-auto mb-6 sm:mb-8 text-slate-200 leading-relaxed">
           Welcome to our warm, magical sanctuary of inspiring stories, wholesome videos, interactive quizzes, and printable craft sheets for children.
         </p>
 
@@ -49,10 +50,10 @@ export default function SplashPage() {
           {/* Left Button (Directs to English site) */}
           <Link
             href="/en/videos"
-            className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-3 py-4 px-6 rounded-2xl text-base sm:text-lg font-black bg-white/10 hover:bg-white/20 border-2 border-white/20 hover:border-amber-400/50 text-white shadow-xl hover:scale-[1.03] active:scale-95 transition-all"
+            className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-3 py-4 px-6 rounded-2xl text-base sm:text-lg font-black bg-[#0c1c38]/80 hover:bg-[#132850]/90 border-2 border-sky-400/40 hover:border-sky-300 text-white shadow-xl hover:scale-[1.03] active:scale-95 transition-all"
             id="splash-english-btn"
           >
-            <BookOpen size={22} className="text-amber-300" />
+            <BookOpen size={22} className="text-sky-300" />
             <span>English (English)</span>
           </Link>
 

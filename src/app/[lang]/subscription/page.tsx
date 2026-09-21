@@ -60,8 +60,8 @@ export default function SubscriptionPage({
 
       {/* Pricing Card Area */}
       <div className="max-w-lg mx-auto mb-12 sm:mb-16">
-        <div className="relative bg-slate-900/90 border-2 border-amber-400/60 rounded-3xl p-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.6),0_0_40px_rgba(245,158,11,0.25)] backdrop-blur-xl">
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 to-amber-600 text-slate-950 font-black text-xs py-1.5 px-5 rounded-full shadow-lg whitespace-nowrap">
+        <div className="relative bg-[#091326]/90 border-2 border-amber-400/60 rounded-3xl p-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.6),0_0_40px_rgba(245,158,11,0.2)] backdrop-blur-xl">
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 font-black text-xs py-1.5 px-5 rounded-full shadow-lg whitespace-nowrap">
             {lang === 'he' ? 'המסלול המומלץ למשפחות' : 'Most Popular Choice'}
           </div>
 
@@ -73,12 +73,12 @@ export default function SubscriptionPage({
             <span className="text-4xl sm:text-5xl font-black text-amber-300">
               {t.card.price}
             </span>
-            <span className="text-sm sm:text-base text-slate-400 font-bold">
+            <span className="text-sm sm:text-base text-slate-300 font-bold">
               {t.card.priceFrequency}
             </span>
           </div>
 
-          <div className="text-center text-xs sm:text-sm text-amber-200/80 mb-6 font-semibold">
+          <div className="text-center text-xs sm:text-sm text-amber-200/90 mb-6 font-semibold">
             {t.card.subCaption}
           </div>
 
@@ -107,9 +107,9 @@ export default function SubscriptionPage({
           </button>
 
           {/* Future Extension Slot */}
-          <div className="mt-8 pt-6 border-t border-white/10 bg-black/20 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 p-6 rounded-b-3xl">
+          <div className="mt-8 pt-6 border-t border-white/10 bg-[#060c18]/40 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 p-6 rounded-b-3xl">
             <div className="flex items-center justify-between gap-2 mb-1.5">
-              <span className="py-0.5 px-2.5 rounded-md text-[11px] font-black bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+              <span className="py-0.5 px-2.5 rounded-md text-[11px] font-black bg-sky-500/20 text-sky-300 border border-sky-500/30">
                 {t.premiumSlot.badge}
               </span>
               <span className="text-sm font-bold text-white">
@@ -119,7 +119,7 @@ export default function SubscriptionPage({
             <div className="text-base font-black text-amber-300 mb-1">
               {t.premiumSlot.price}
             </div>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-300 leading-relaxed">
               {t.premiumSlot.desc}
             </p>
           </div>
@@ -129,7 +129,7 @@ export default function SubscriptionPage({
       {/* Subscriber Intake Form */}
       {showForm && (
         <div
-          className="max-w-xl mx-auto bg-slate-900/95 border border-amber-500/40 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-xl mb-14 animate-fadeIn"
+          className="max-w-xl mx-auto bg-[#091326]/95 border-2 border-amber-400/50 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-xl mb-14 animate-fadeIn"
           ref={formRef}
           id="intake-form-section"
         >
@@ -142,7 +142,7 @@ export default function SubscriptionPage({
                 <h3 className="text-xl sm:text-2xl font-black text-white mb-2">
                   {t.form.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-300">
+                <p className="text-xs sm:text-sm text-slate-200">
                   {t.form.subtitle}
                 </p>
               </div>
@@ -159,7 +159,7 @@ export default function SubscriptionPage({
                     type="email"
                     required
                     placeholder="family@example.com"
-                    className="w-full py-3 px-4 rounded-xl bg-slate-800/80 border border-slate-700 text-white text-base placeholder-slate-400 focus:border-amber-400 focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
+                    className="w-full py-3 px-4 rounded-xl bg-[#060c18]/80 border border-sky-400/30 text-white text-base placeholder-slate-400 focus:border-amber-400 focus:bg-[#09152b] focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
                     value={formData.email}
                     onChange={handleInputChange}
                   />
@@ -176,7 +176,7 @@ export default function SubscriptionPage({
                     type="tel"
                     required
                     placeholder="+1 (555) 000-0000"
-                    className="w-full py-3 px-4 rounded-xl bg-slate-800/80 border border-slate-700 text-white text-base placeholder-slate-400 focus:border-amber-400 focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
+                    className="w-full py-3 px-4 rounded-xl bg-[#060c18]/80 border border-sky-400/30 text-white text-base placeholder-slate-400 focus:border-amber-400 focus:bg-[#09152b] focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
                     value={formData.phone}
                     onChange={handleInputChange}
                   />
@@ -190,15 +190,15 @@ export default function SubscriptionPage({
                   <select
                     id="children-field"
                     name="children"
-                    className="w-full py-3 px-4 rounded-xl bg-slate-800/80 border border-slate-700 text-white text-base focus:border-amber-400 focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
+                    className="w-full py-3 px-4 rounded-xl bg-[#060c18]/80 border border-sky-400/30 text-white text-base focus:border-amber-400 focus:bg-[#09152b] focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
                     value={formData.children}
                     onChange={handleInputChange}
                   >
-                    <option value="1" className="bg-slate-900 text-white">1</option>
-                    <option value="2" className="bg-slate-900 text-white">2</option>
-                    <option value="3" className="bg-slate-900 text-white">3</option>
-                    <option value="4" className="bg-slate-900 text-white">4</option>
-                    <option value="5+" className="bg-slate-900 text-white">5+</option>
+                    <option value="1" className="bg-[#091326] text-white">1</option>
+                    <option value="2" className="bg-[#091326] text-white">2</option>
+                    <option value="3" className="bg-[#091326] text-white">3</option>
+                    <option value="4" className="bg-[#091326] text-white">4</option>
+                    <option value="5+" className="bg-[#091326] text-white">5+</option>
                   </select>
                 </div>
 
@@ -213,7 +213,7 @@ export default function SubscriptionPage({
                     type="text"
                     required
                     placeholder="Brooklyn, NY"
-                    className="w-full py-3 px-4 rounded-xl bg-slate-800/80 border border-slate-700 text-white text-base placeholder-slate-400 focus:border-amber-400 focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
+                    className="w-full py-3 px-4 rounded-xl bg-[#060c18]/80 border border-sky-400/30 text-white text-base placeholder-slate-400 focus:border-amber-400 focus:bg-[#09152b] focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
                     value={formData.cityState}
                     onChange={handleInputChange}
                   />

@@ -14,13 +14,13 @@ export default function PaywallModal({ lang }: { lang: Language }) {
 
   return (
     <div
-      className="fixed inset-0 z-[2000] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn"
+      className="fixed inset-0 z-[2000] bg-[#060c18]/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn"
       onClick={closePaywall}
       role="dialog"
       aria-modal="true"
     >
       <div
-        className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-950 border-2 border-amber-400/70 rounded-3xl p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_50px_rgba(245,158,11,0.25)] text-center"
+        className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto bg-gradient-to-br from-[#0d1b38] via-[#091326] to-[#060c18] border-2 border-amber-400/70 rounded-3xl p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_50px_rgba(245,158,11,0.25)] text-center"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -40,7 +40,7 @@ export default function PaywallModal({ lang }: { lang: Language }) {
           {t.modalTitle}
         </h2>
 
-        <p className="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed max-w-sm mx-auto">
+        <p className="text-xs sm:text-sm text-slate-200 mb-6 leading-relaxed max-w-sm mx-auto">
           {paywallResource ? (
             <>
               <strong className="text-amber-300">&ldquo;{paywallResource}&rdquo;</strong> — {t.modalSubtitle}
@@ -50,7 +50,7 @@ export default function PaywallModal({ lang }: { lang: Language }) {
           )}
         </p>
 
-        <div className="bg-black/40 border border-white/10 rounded-2xl p-4 mb-6 text-start space-y-2.5">
+        <div className="bg-[#050914]/60 border border-sky-400/20 rounded-2xl p-4 mb-6 text-start space-y-2.5">
           <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
             <CheckCircle2 size={16} className="text-emerald-400 flex-shrink-0" />
             <span>{t.feature1}</span>

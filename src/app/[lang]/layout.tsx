@@ -20,10 +20,11 @@ export default async function BilingualLayout({
     <div dir={lang === 'he' ? 'rtl' : 'ltr'} lang={lang} className="min-h-screen relative text-slate-100 flex flex-col justify-between overflow-x-hidden">
       {/* Consistent master background layer */}
       <div
-        className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat scale-[1.02]"
-        style={{ backgroundImage: "url('/images/master_background.jpg')" }}
+        className="fixed inset-0 -z-20 bg-cover bg-[center_top_8%] sm:bg-center bg-no-repeat scale-[1.01]"
+        style={{ backgroundImage: "url('/images/yachad-bg.jpeg')" }}
       />
-      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_50%_20%,rgba(11,17,32,0.65)_0%,rgba(9,14,26,0.88)_75%,rgba(6,9,17,0.96)_100%)] backdrop-blur-[2px] pointer-events-none" />
+      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-[#070c18]/72 via-[#0a1326]/80 to-[#060c18]/92 backdrop-blur-[2px] pointer-events-none" />
+      <div className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(56,189,248,0.12)_0%,transparent_60%)] pointer-events-none" />
 
       {/* Prototype simulator top switcher */}
       <SimulatorBar lang={lang} />

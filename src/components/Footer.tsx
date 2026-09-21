@@ -9,7 +9,7 @@ export default function Footer({ lang }: { lang: Language }) {
   const t = TRANSLATIONS[lang];
 
   return (
-    <footer className="border-t border-amber-500/25 bg-slate-950/95 py-8 sm:py-12 px-4 sm:px-6 mt-16 text-slate-400">
+    <footer className="border-t border-amber-400/25 bg-[#060c18]/95 backdrop-blur-xl py-8 sm:py-12 px-4 sm:px-6 mt-16 text-slate-300">
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center gap-6">
         {/* Brand Logo in Footer */}
         <div className="flex items-center gap-2.5 text-white">

@@ -93,7 +93,7 @@ export default function EpisodeQuizPage({
       </nav>
 
       {/* Episode Header Banner */}
-      <header className="bg-gradient-to-r from-slate-900/95 via-indigo-950/80 to-slate-900/95 border border-amber-500/40 rounded-3xl p-5 sm:p-6 mb-8 shadow-2xl backdrop-blur-xl">
+      <header className="bg-gradient-to-r from-[#0c1936]/95 via-[#091326]/90 to-[#0c1936]/95 border border-amber-400/40 rounded-3xl p-5 sm:p-6 mb-8 shadow-2xl backdrop-blur-xl">
         <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
           <div className="w-28 h-28 sm:w-32 sm:h-24 relative rounded-2xl overflow-hidden flex-shrink-0 shadow-lg border-2 border-amber-400/50">
             <Image
@@ -123,7 +123,7 @@ export default function EpisodeQuizPage({
 
       {/* Paywall Check */}
       {!isSubscriber ? (
-        <section className="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-950 border-2 border-amber-400/60 rounded-3xl p-8 sm:p-12 text-center shadow-2xl">
+        <section className="bg-gradient-to-br from-[#0d1b38] via-[#091326] to-[#060c18] border-2 border-amber-400/60 rounded-3xl p-8 sm:p-12 text-center shadow-2xl">
           <div className="w-20 h-20 rounded-full bg-gradient-to-br from-amber-500/20 to-amber-600/40 text-amber-300 flex items-center justify-center mx-auto mb-5 border-2 border-amber-400 shadow-xl">
             <Lock size={36} />
           </div>
@@ -154,7 +154,7 @@ export default function EpisodeQuizPage({
         </section>
       ) : (
         /* Unlocked Interactive Quiz Arena */
-        <main className="bg-slate-900/95 border border-amber-500/30 rounded-3xl p-5 sm:p-8 shadow-2xl backdrop-blur-xl">
+        <main className="bg-[#091326]/95 border border-amber-400/30 rounded-3xl p-5 sm:p-8 shadow-2xl backdrop-blur-xl">
           {/* Quiz Arena Header */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 mb-8 border-b border-white/10">
             <div className="flex items-center gap-3.5 text-center sm:text-start">
@@ -192,7 +192,7 @@ export default function EpisodeQuizPage({
               return (
                 <article
                   key={qIdx}
-                  className="rounded-2xl bg-slate-950/70 border border-slate-700/60 p-5 sm:p-7 shadow-lg transition-all"
+                  className="rounded-2xl bg-[#060c18]/80 border border-sky-400/20 p-5 sm:p-7 shadow-lg transition-all"
                 >
                   {/* Question Title & Number Pill */}
                   <div className="flex items-start gap-3.5 mb-5">
@@ -210,7 +210,7 @@ export default function EpisodeQuizPage({
                       const isSelected = chosen === optIdx;
 
                       let cardStyle =
-                        'bg-slate-800/70 border-slate-700/80 text-slate-200 hover:bg-slate-800 hover:border-amber-400/50 hover:shadow-md';
+                        'bg-[#0b162f]/80 border-sky-400/25 text-slate-200 hover:bg-[#0f1f42] hover:border-amber-400/50 hover:shadow-md';
                       let letterStyle =
                         'bg-slate-700/60 border-slate-600 text-slate-300 font-bold';
                       let statusIcon = null;

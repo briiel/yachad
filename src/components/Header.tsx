@@ -82,18 +82,18 @@ export default function Header({ lang }: { lang: Language }) {
 
   return (
     <>
-      <header className="sticky top-10 left-0 right-0 z-[900] h-18 sm:h-20 bg-slate-950/80 backdrop-blur-xl border-b border-amber-500/30 shadow-2xl flex items-center transition-all">
+      <header className="sticky top-10 left-0 right-0 z-[900] h-18 sm:h-20 bg-[#081020]/85 backdrop-blur-xl border-b border-amber-400/30 shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex items-center transition-all">
         <div className="flex items-center justify-between w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Brand Logo & Title */}
           <Link href={`/${lang}/videos`} className="flex items-center gap-2.5 sm:gap-3.5 group">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 flex items-center justify-center text-slate-950 font-black shadow-[0_4px_15px_rgba(245,158,11,0.4)] border border-white/30 flex-shrink-0 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 flex items-center justify-center text-slate-950 font-black shadow-[0_4px_15px_rgba(245,158,11,0.45)] border border-white/30 flex-shrink-0 group-hover:scale-105 transition-transform">
               <Sparkles size={22} className="sm:w-6 sm:h-6" />
             </div>
             <div className="flex flex-col">
               <span className="text-base sm:text-lg font-black leading-tight bg-gradient-to-r from-white via-amber-100 to-amber-300 bg-clip-text text-transparent">
                 {t.siteTitle}
               </span>
-              <span className="text-[10px] sm:text-xs text-slate-400 font-semibold hidden xs:inline-block">
+              <span className="text-[10px] sm:text-xs text-sky-200/70 font-semibold hidden xs:inline-block">
                 {t.siteSubtitle}
               </span>
             </div>
@@ -110,8 +110,8 @@ export default function Header({ lang }: { lang: Language }) {
                       href={item.href}
                       className={`px-3.5 py-2 rounded-xl text-sm font-bold transition-all duration-200 ${
                         isActive
-                          ? 'text-white bg-amber-500/20 border border-amber-400/50 shadow-[0_0_15px_rgba(245,158,11,0.2)]'
-                          : 'text-slate-300 hover:text-amber-300 hover:bg-amber-500/10 border border-transparent'
+                          ? 'text-white bg-gradient-to-r from-amber-500/25 to-sky-500/15 border border-amber-400/50 shadow-[0_0_15px_rgba(245,158,11,0.25)]'
+                          : 'text-slate-200 hover:text-amber-300 hover:bg-white/10 border border-transparent'
                       }`}
                     >
                       {item.label}
@@ -170,15 +170,15 @@ export default function Header({ lang }: { lang: Language }) {
 
           {/* Drawer Panel: Aligned right in Hebrew (RTL), left in English (LTR) */}
           <aside
-            className={`fixed top-0 bottom-0 w-[82vw] max-w-[340px] bg-slate-950/95 shadow-2xl backdrop-blur-2xl flex flex-col justify-between z-10 transition-transform duration-300 ease-out overflow-y-auto ${
+            className={`fixed top-0 bottom-0 w-[82vw] max-w-[340px] bg-[#081020]/95 shadow-2xl backdrop-blur-2xl flex flex-col justify-between z-10 transition-transform duration-300 ease-out overflow-y-auto ${
               lang === 'he'
-                ? 'right-0 border-l border-amber-500/30'
-                : 'left-0 border-r border-amber-500/30'
+                ? 'right-0 border-l border-amber-400/30'
+                : 'left-0 border-r border-amber-400/30'
             }`}
           >
             {/* Drawer Header */}
             <div>
-              <div className="flex items-center justify-between p-4 border-b border-white/10 bg-slate-900/60">
+              <div className="flex items-center justify-between p-4 border-b border-white/10 bg-[#0d1a33]/70">
                 <div className="flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 font-bold shadow-md">
                     <Sparkles size={18} />

@@ -35,7 +35,7 @@ export default function ShopPage({
       </div>
 
       {/* Category Landing Screen: Featured Category Banner/Card */}
-      <section className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 p-6 sm:p-10 md:p-12 rounded-3xl mb-12 sm:mb-16 border-2 border-amber-400/60 bg-gradient-to-br from-indigo-950/90 via-slate-900/95 to-slate-950/95 shadow-[0_20px_50px_rgba(0,0,0,0.6),0_0_40px_rgba(245,158,11,0.2)] backdrop-blur-xl">
+      <section className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 p-6 sm:p-10 md:p-12 rounded-3xl mb-12 sm:mb-16 border-2 border-amber-400/60 bg-gradient-to-br from-[#0c1936]/90 via-[#0a1326]/95 to-[#060c18]/95 shadow-[0_20px_50px_rgba(0,0,0,0.6),0_0_40px_rgba(245,158,11,0.2)] backdrop-blur-xl">
         <div className="text-center md:text-start max-w-xl">
           <div className="inline-flex items-center gap-1.5 py-1 px-3.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 mb-3 sm:mb-4">
             <Sparkles size={14} />
@@ -46,7 +46,7 @@ export default function ShopPage({
             {t.featuredCategory.title}
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
+          <p className="text-sm sm:text-base text-slate-200 leading-relaxed mb-6">
             {t.featuredCategory.subtitle}
           </p>
 
@@ -81,7 +81,7 @@ export default function ShopPage({
           <h3 className="text-2xl sm:text-3xl font-black text-white mb-1.5">
             {t.catalogTitle}
           </h3>
-          <p className="text-xs sm:text-sm text-slate-400">
+          <p className="text-xs sm:text-sm text-sky-200/70">
             {t.catalogSubtitle}
           </p>
         </div>
@@ -97,7 +97,7 @@ export default function ShopPage({
             return (
               <div
                 key={item.id}
-                className="flex flex-col h-full rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-900/85 border border-amber-500/30 hover:border-amber-400/60 shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1"
+                className="flex flex-col h-full rounded-2xl sm:rounded-3xl overflow-hidden bg-[#091326]/85 border border-amber-400/30 hover:border-amber-400/60 shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Product Image */}
                 <div className="relative w-full aspect-[3/4] bg-slate-950 overflow-hidden">

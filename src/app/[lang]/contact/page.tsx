@@ -58,7 +58,7 @@ export default function ContactPage({
       {/* Main 2-Column Balanced Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-14">
         {/* Left Column (7 Cols on lg): Inquiry Form */}
-        <div className="lg:col-span-7 bg-slate-900/95 border border-amber-500/35 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
+        <div className="lg:col-span-7 bg-[#091326]/95 border border-amber-400/35 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
           <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
             <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center flex-shrink-0 border border-amber-400/30">
               <MessageSquare size={20} />
@@ -67,7 +67,7 @@ export default function ContactPage({
               <h2 className="text-xl sm:text-2xl font-black text-white">
                 {t.form.title}
               </h2>
-              <p className="text-xs sm:text-sm text-slate-400">
+              <p className="text-xs sm:text-sm text-sky-200/70">
                 {lang === 'he'
                   ? 'מלאו את פרטי הפנייה ונחזור אליכם בהקדם האפשרי'
                   : 'Fill in your details below and our team will respond shortly'}
@@ -91,7 +91,7 @@ export default function ContactPage({
                   type="text"
                   required
                   placeholder={lang === 'he' ? 'ישראל ישראלי' : 'Sarah Cohen'}
-                  className="w-full py-3 px-4 rounded-xl bg-slate-800/80 border border-slate-700 text-white text-base placeholder-slate-400 focus:border-amber-400 focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
+                  className="w-full py-3 px-4 rounded-xl bg-[#060c18]/80 border border-sky-400/30 text-white text-base placeholder-slate-400 focus:border-amber-400 focus:bg-[#09152b] focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                 />
@@ -111,7 +111,7 @@ export default function ContactPage({
                   type="email"
                   required
                   placeholder="parent@example.com"
-                  className="w-full py-3 px-4 rounded-xl bg-slate-800/80 border border-slate-700 text-white text-base placeholder-slate-400 focus:border-amber-400 focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
+                  className="w-full py-3 px-4 rounded-xl bg-[#060c18]/80 border border-sky-400/30 text-white text-base placeholder-slate-400 focus:border-amber-400 focus:bg-[#09152b] focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
@@ -128,12 +128,12 @@ export default function ContactPage({
                 </label>
                 <select
                   id="subject-field"
-                  className="w-full py-3 px-4 rounded-xl bg-slate-800/80 border border-slate-700 text-white text-base focus:border-amber-400 focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
+                  className="w-full py-3 px-4 rounded-xl bg-[#060c18]/80 border border-sky-400/30 text-white text-base focus:border-amber-400 focus:bg-[#09152b] focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                 >
                   {t.form.subjects.map((sub, idx) => (
-                    <option key={idx} value={sub} className="bg-slate-900 text-white">
+                    <option key={idx} value={sub} className="bg-[#091326] text-white">
                       {sub}
                     </option>
                   ))}
@@ -158,7 +158,7 @@ export default function ContactPage({
                       ? 'כיצד נוכל לעזור למשפחתכם? נשמח לענות על כל שאלה או בקשה.'
                       : 'How can our family care team assist you with subscriptions or stories?'
                   }
-                  className="w-full py-3 px-4 rounded-xl bg-slate-800/80 border border-slate-700 text-white text-base placeholder-slate-400 focus:border-amber-400 focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
+                  className="w-full py-3 px-4 rounded-xl bg-[#060c18]/80 border border-sky-400/30 text-white text-base placeholder-slate-400 focus:border-amber-400 focus:bg-[#09152b] focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all shadow-inner"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 />
@@ -199,7 +199,7 @@ export default function ContactPage({
         {/* Right Column (5 Cols on lg): Direct Channels, Help Topics & Trust Seal */}
         <div className="lg:col-span-5 flex flex-col gap-6">
           {/* Direct Support Channels Card */}
-          <div className="bg-slate-900/95 border border-amber-500/35 rounded-3xl p-6 sm:p-7 shadow-xl backdrop-blur-xl">
+          <div className="bg-[#091326]/95 border border-amber-400/35 rounded-3xl p-6 sm:p-7 shadow-xl backdrop-blur-xl">
             <h2 className="text-lg sm:text-xl font-black text-white mb-4 flex items-center gap-2">
               <Sparkles size={18} className="text-amber-400" />
               <span>{t.directSupport.title}</span>
@@ -207,12 +207,12 @@ export default function ContactPage({
 
             <div className="space-y-3.5">
               {/* Dedicated Support Email */}
-              <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-800/70 border border-slate-700/80 hover:border-amber-400/50 transition-colors">
+              <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-[#060c18]/70 border border-sky-400/20 hover:border-amber-400/50 transition-colors">
                 <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center flex-shrink-0 border border-amber-400/30">
                   <Mail size={19} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-xs text-slate-400 font-medium">
+                  <div className="text-xs text-sky-200/70 font-medium">
                     {t.directSupport.emailLabel}
                   </div>
                   <a
@@ -225,12 +225,12 @@ export default function ContactPage({
               </div>
 
               {/* WhatsApp / Phone Customer Service line */}
-              <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-800/70 border border-slate-700/80 hover:border-amber-400/50 transition-colors">
+              <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-[#060c18]/70 border border-sky-400/20 hover:border-amber-400/50 transition-colors">
                 <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center flex-shrink-0 border border-amber-400/30">
                   <Phone size={19} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-xs text-slate-400 font-medium">
+                  <div className="text-xs text-sky-200/70 font-medium">
                     {t.directSupport.phoneLabel}
                   </div>
                   <a
@@ -243,12 +243,12 @@ export default function ContactPage({
               </div>
 
               {/* Operating Hours */}
-              <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-800/70 border border-slate-700/80">
+              <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-[#060c18]/70 border border-sky-400/20">
                 <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center flex-shrink-0 border border-amber-400/30">
                   <Clock size={19} />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-400 font-medium">
+                  <div className="text-xs text-sky-200/70 font-medium">
                     {lang === 'he' ? 'שעות פעילות המוקד' : 'Support Hours'}
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-slate-200 mt-0.5">
@@ -260,13 +260,13 @@ export default function ContactPage({
           </div>
 
           {/* Quick Support Topics Card */}
-          <div className="bg-slate-900/90 border border-slate-700/60 rounded-3xl p-6 shadow-xl">
+          <div className="bg-[#091326]/90 border border-sky-400/20 rounded-3xl p-6 shadow-xl">
             <h3 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
               <HelpCircle size={16} className="text-amber-400" />
               <span>{lang === 'he' ? 'נושאים נפוצים לפנייה' : 'Common Assistance Topics'}</span>
             </h3>
 
-            <ul className="space-y-2.5 text-xs text-slate-300 list-none">
+            <ul className="space-y-2.5 text-xs text-slate-200 list-none">
               <li className="flex items-center gap-2.5">
                 <BadgeCheck size={16} className="text-emerald-400 flex-shrink-0" />
                 <span>{lang === 'he' ? 'ניהול מנויים, שינוי מסלול או ביטולים' : 'Subscription management, upgrades, or billing'}</span>
@@ -283,13 +283,13 @@ export default function ContactPage({
           </div>
 
           {/* Family Trust & Safe Environment Guarantee */}
-          <div className="p-4 rounded-2xl bg-gradient-to-r from-amber-500/15 via-indigo-950/60 to-slate-950/80 border border-amber-500/30 flex items-start gap-3 shadow-lg">
+          <div className="p-4 rounded-2xl bg-gradient-to-r from-amber-500/15 via-[#0c1a35]/70 to-[#060c18]/85 border border-amber-400/35 flex items-start gap-3 shadow-lg">
             <ShieldCheck size={26} className="text-amber-400 flex-shrink-0 mt-0.5" />
             <div>
               <h4 className="text-xs sm:text-sm font-bold text-white">
                 {lang === 'he' ? 'סביבה בטוחה ונקייה לילדים' : '100% Safe, Kosher & Ad-Free'}
               </h4>
-              <p className="text-[11px] sm:text-xs text-amber-200/80 mt-0.5 leading-relaxed">
+              <p className="text-[11px] sm:text-xs text-amber-200/90 mt-0.5 leading-relaxed">
                 {lang === 'he'
                   ? 'כל התכנים בפלטפורמה נבדקו בקפידה ומותאמים לחינוך יהודי שורשי בסביבה נקייה מפרסומות.'
                   : 'Every episode, quiz, and craft sheet is carefully curated to uphold timeless Jewish values in a safe, ad-free environment.'}
@@ -301,7 +301,7 @@ export default function ContactPage({
 
       {/* Policy Section: Clear section covering terms, returns, and order cancellations */}
       <section
-        className="bg-slate-900/90 border border-amber-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-xl"
+        className="bg-[#091326]/90 border border-amber-400/30 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-xl"
         id="refund-policy"
       >
         <div className="flex items-center gap-3 mb-2">

@@ -12,7 +12,7 @@ export default function SimulatorBar({ lang }: { lang: Language }) {
   return (
     <aside
       aria-label={t.badge}
-      className="sticky top-0 left-0 right-0 z-[1000] h-10 px-3 sm:px-6 flex items-center justify-between text-xs sm:text-sm font-medium bg-gradient-to-r from-indigo-950 via-indigo-900 to-indigo-950 border-b border-indigo-400/30 shadow-md backdrop-blur-md"
+      className="sticky top-0 left-0 right-0 z-[1000] h-10 px-3 sm:px-6 flex items-center justify-between text-xs sm:text-sm font-medium bg-gradient-to-r from-[#071124] via-[#0d1d3d] to-[#071124] border-b border-sky-400/25 shadow-md backdrop-blur-md"
     >
       <div className="flex items-center gap-2">
         <span

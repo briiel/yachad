@@ -73,7 +73,7 @@ export default function EpisodeCraftPage({
       </nav>
 
       {/* Episode Header Banner */}
-      <header className="bg-gradient-to-r from-slate-900/95 via-indigo-950/80 to-slate-900/95 border border-amber-500/40 rounded-3xl p-5 sm:p-6 mb-8 shadow-2xl backdrop-blur-xl">
+      <header className="bg-gradient-to-r from-[#0c1936]/95 via-[#091326]/90 to-[#0c1936]/95 border border-amber-400/40 rounded-3xl p-5 sm:p-6 mb-8 shadow-2xl backdrop-blur-xl">
         <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
           <div className="w-28 h-28 sm:w-32 sm:h-24 relative rounded-2xl overflow-hidden flex-shrink-0 shadow-lg border-2 border-amber-400/50">
             <Image
@@ -103,7 +103,7 @@ export default function EpisodeCraftPage({
 
       {/* Paywall Check */}
       {!isSubscriber ? (
-        <section className="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-950 border-2 border-amber-400/60 rounded-3xl p-8 sm:p-12 text-center shadow-2xl">
+        <section className="bg-gradient-to-br from-[#0d1b38] via-[#091326] to-[#060c18] border-2 border-amber-400/60 rounded-3xl p-8 sm:p-12 text-center shadow-2xl">
           <div className="w-20 h-20 rounded-full bg-gradient-to-br from-amber-500/20 to-amber-600/40 text-amber-300 flex items-center justify-center mx-auto mb-5 border-2 border-amber-400 shadow-xl">
             <Lock size={36} />
           </div>
@@ -183,7 +183,7 @@ export default function EpisodeCraftPage({
           {/* Right Column (7 Cols on lg): Workshop Controls & Activity Guide */}
           <div className="lg:col-span-7 flex flex-col gap-6">
             {/* 1. Print & Download Hub Card */}
-            <div className="bg-slate-900/95 border border-amber-500/35 rounded-3xl p-6 sm:p-7 shadow-xl backdrop-blur-xl">
+            <div className="bg-[#091326]/95 border border-amber-400/35 rounded-3xl p-6 sm:p-7 shadow-xl backdrop-blur-xl">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center flex-shrink-0 border border-amber-400/30">
                   <Palette size={22} />
@@ -235,7 +235,7 @@ export default function EpisodeCraftPage({
             </div>
 
             {/* 2. Activity Guide & Story Connection */}
-            <div className="bg-slate-900/90 border border-slate-700/60 rounded-3xl p-6 sm:p-7 shadow-xl">
+            <div className="bg-[#091326]/90 border border-sky-400/25 rounded-3xl p-6 sm:p-7 shadow-xl">
               <h3 className="text-base sm:text-lg font-bold text-white mb-3 flex items-center gap-2">
                 <Sparkles size={18} className="text-amber-400" />
                 <span>{lang === 'he' ? 'על פעילות היצירה והערכים' : 'About this Craft & Values'}</span>

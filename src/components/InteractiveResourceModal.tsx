@@ -18,13 +18,13 @@ export default function InteractiveResourceModal({ lang }: { lang: Language }) {
 
     return (
       <div
-        className="fixed inset-0 z-[2000] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn"
+        className="fixed inset-0 z-[2000] bg-[#060c18]/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn"
         onClick={closeComicCheckout}
         role="dialog"
         aria-modal="true"
       >
         <div
-          className="relative w-full max-w-md max-h-[92vh] overflow-y-auto bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-950 border-2 border-amber-400/70 rounded-3xl p-6 sm:p-8 shadow-2xl text-center"
+          className="relative w-full max-w-md max-h-[92vh] overflow-y-auto bg-gradient-to-br from-[#0d1b38] via-[#091326] to-[#060c18] border-2 border-amber-400/70 rounded-3xl p-6 sm:p-8 shadow-2xl text-center"
           onClick={(e) => e.stopPropagation()}
         >
           <button

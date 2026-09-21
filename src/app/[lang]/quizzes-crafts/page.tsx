@@ -41,7 +41,7 @@ export default function QuizzesCraftsPage({
           return (
             <div
               key={ep.id}
-              className="flex flex-col sm:flex-row bg-slate-900/85 border border-amber-500/30 hover:border-amber-400/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1"
+              className="flex flex-col sm:flex-row bg-[#091326]/85 border border-amber-400/30 hover:border-amber-400/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1"
             >
               {/* Thumbnail */}
               <div className="relative w-full h-48 sm:w-48 sm:h-auto flex-shrink-0 overflow-hidden bg-black">
@@ -52,7 +52,7 @@ export default function QuizzesCraftsPage({
                   sizes="(max-width: 640px) 100vw, 220px"
                   className="object-cover transition-transform duration-500 hover:scale-105"
                 />
-                <div className="absolute top-2.5 start-2.5 bg-black/75 text-white text-xs font-bold py-0.5 px-2 rounded-md backdrop-blur-sm border border-white/10 z-10">
+                <div className="absolute top-2.5 start-2.5 bg-[#060c18]/85 text-white text-xs font-bold py-0.5 px-2 rounded-md backdrop-blur-sm border border-white/10 z-10">
                   {badge}
                 </div>
               </div>
@@ -67,7 +67,7 @@ export default function QuizzesCraftsPage({
                   <h2 className="text-base sm:text-lg font-black text-white mb-1.5 leading-snug min-h-[1.75rem] sm:min-h-[2rem] line-clamp-1">
                     {title}
                   </h2>
-                  <p className="text-xs sm:text-sm text-slate-300 line-clamp-2 leading-relaxed mb-4 min-h-[2.5rem] sm:min-h-[2.75rem]">
+                  <p className="text-xs sm:text-sm text-slate-200 line-clamp-2 leading-relaxed mb-4 min-h-[2.5rem] sm:min-h-[2.75rem]">
                     {desc}
                   </p>
                 </div>
@@ -82,9 +82,9 @@ export default function QuizzesCraftsPage({
                         openPaywall(title);
                       }
                     }}
-                    className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 border border-white/15 text-white transition-all active:scale-95 text-center shadow-sm"
+                    className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold bg-[#0c1c38]/90 hover:bg-[#122850] border border-sky-400/40 text-sky-200 hover:text-white transition-all active:scale-95 text-center shadow-sm"
                   >
-                    <HelpCircle size={15} className="text-amber-400 flex-shrink-0" />
+                    <HelpCircle size={15} className="text-sky-300 flex-shrink-0" />
                     <span className="truncate">{t.quizBtn}</span>
                     {!isSubscriber && <Lock size={12} className="text-rose-400 flex-shrink-0" />}
                   </Link>
@@ -97,7 +97,7 @@ export default function QuizzesCraftsPage({
                         openPaywall(title);
                       }
                     }}
-                    className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold bg-amber-500/10 hover:bg-amber-500/20 border border-amber-400/50 text-amber-300 transition-all active:scale-95 text-center shadow-sm"
+                    className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold bg-amber-500/15 hover:bg-amber-500/25 border border-amber-400/50 text-amber-300 hover:text-amber-200 transition-all active:scale-95 text-center shadow-sm"
                   >
                     <Palette size={15} className="text-amber-400 flex-shrink-0" />
                     <span className="truncate">{t.craftBtn}</span>
