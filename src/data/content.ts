@@ -11,6 +11,20 @@ export interface Episode {
   videoUrl: string;
   badge: string;
   hebrewBadge: string;
+  isFree: boolean;
+}
+
+export interface Song {
+  id: string;
+  episodeId: string;
+  title: string;
+  hebrewTitle: string;
+  duration: string;
+  audioUrl: string;
+  thumbnail: string;
+  isFree: boolean;
+  lyricsHighlight: string;
+  hebrewLyricsHighlight: string;
 }
 
 export interface ComicProduct {
@@ -57,6 +71,7 @@ export const EPISODES: Episode[] = [
     videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
     badge: 'Episode 1',
     hebrewBadge: 'פרק 1',
+    isFree: true,
   },
   {
     id: 'ep-2',
@@ -69,6 +84,7 @@ export const EPISODES: Episode[] = [
     videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     badge: 'Episode 2',
     hebrewBadge: 'פרק 2',
+    isFree: true,
   },
   {
     id: 'ep-3',
@@ -81,6 +97,7 @@ export const EPISODES: Episode[] = [
     videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
     badge: 'Episode 3',
     hebrewBadge: 'פרק 3',
+    isFree: false,
   },
   {
     id: 'ep-4',
@@ -93,6 +110,7 @@ export const EPISODES: Episode[] = [
     videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
     badge: 'Episode 4',
     hebrewBadge: 'פרק 4',
+    isFree: false,
   },
   {
     id: 'ep-5',
@@ -105,6 +123,7 @@ export const EPISODES: Episode[] = [
     videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
     badge: 'Episode 5',
     hebrewBadge: 'פרק 5',
+    isFree: false,
   },
   {
     id: 'ep-6',
@@ -117,6 +136,82 @@ export const EPISODES: Episode[] = [
     videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyBlazes.mp4',
     badge: 'Episode 6',
     hebrewBadge: 'פרק 6',
+    isFree: false,
+  },
+];
+
+export const SONGS: Song[] = [
+  {
+    id: 'song-1',
+    episodeId: 'ep-1',
+    title: 'Challah of Love (Song of Tzfat)',
+    hebrewTitle: 'חלות של אהבה (שיר האופה מצפת)',
+    duration: '3:45',
+    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+    thumbnail: '/images/video_thumb_1.jpg',
+    isFree: true,
+    lyricsHighlight: 'Warm from the oven, baked with delight, bringing holy light to Shabbat night...',
+    hebrewLyricsHighlight: 'חלות חמות מן התנור באהבה נמסרות, מאירות את שולחן השבת בברכות...',
+  },
+  {
+    id: 'song-2',
+    episodeId: 'ep-2',
+    title: 'Treasure of the Heart (Jerusalem Song)',
+    hebrewTitle: 'אוצר הלב (שיר ירושלים)',
+    duration: '4:12',
+    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+    thumbnail: '/images/comics_cover.jpg',
+    isFree: true,
+    lyricsHighlight: 'Not silver, not gold in an ancient chest, but a generous heart is truly blessed...',
+    hebrewLyricsHighlight: 'לא כסף וזהב בתיבה נסתרת, אלא לב טוב ואהבה בוערת...',
+  },
+  {
+    id: 'song-3',
+    episodeId: 'ep-3',
+    title: 'Dove of Hope (Ark of Peace Song)',
+    hebrewTitle: 'יונת השלום (שיר תיבת נח)',
+    duration: '3:50',
+    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
+    thumbnail: '/images/craft_sheet_1.jpg',
+    isFree: false,
+    lyricsHighlight: 'Fly high little dove across the gentle breeze, bring a holy leaf of green and peace...',
+    hebrewLyricsHighlight: 'עופי יונה אל על מעל המים, הביאי עלה של שלום מן השמיים...',
+  },
+  {
+    id: 'song-4',
+    episodeId: 'ep-4',
+    title: 'The Eternal Flame (Shabbat Candles Song)',
+    hebrewTitle: 'נר השבת המאיר (שיר שרה אמנו)',
+    duration: '3:30',
+    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
+    thumbnail: '/images/master_background.jpg',
+    isFree: false,
+    lyricsHighlight: 'Seven bright days the holy candles glow, with serenity and love that overflow...',
+    hebrewLyricsHighlight: 'שבעה ימים האור הקדוש עוד בוער, את כל הבית והלב הוא מעורר...',
+  },
+  {
+    id: 'song-5',
+    episodeId: 'ep-5',
+    title: 'Song of the Brave Shepherd',
+    hebrewTitle: 'שיר הרועה האמיץ בהרי יהודה',
+    duration: '4:05',
+    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
+    thumbnail: '/images/comics_cover.jpg',
+    isFree: false,
+    lyricsHighlight: 'With a harp and a prayer high upon the hill, Hashem is my shepherd, I trust in Him still...',
+    hebrewLyricsHighlight: 'בכינור ובשיר על ראש הגבעה, ה׳ רועי לא אחסר בכל שעה...',
+  },
+  {
+    id: 'song-6',
+    episodeId: 'ep-6',
+    title: 'Pomegranate Seeds of Kindness',
+    hebrewTitle: 'פירות הרימון של חסד ואמונה',
+    duration: '3:20',
+    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3',
+    thumbnail: '/images/video_thumb_1.jpg',
+    isFree: false,
+    lyricsHighlight: 'Open your tent to each weary guest, sweet are the fruits when our hands are blessed...',
+    hebrewLyricsHighlight: 'פתחו את האוהל לכל אורח ועובר, פירות מתוקים וברכה שתגבר...',
   },
 ];
 
@@ -361,6 +456,7 @@ export const TRANSLATIONS = {
     nav: {
       subscription: 'Subscription',
       videos: 'Videos',
+      songs: 'Songs',
       quizzesCrafts: 'Quizzes & Crafts',
       shop: 'Shop',
       contact: 'Contact Us',
@@ -375,9 +471,9 @@ export const TRANSLATIONS = {
     paywall: {
       bannerNotice: 'Subscribers Only – Subscribe Now',
       modalTitle: 'Subscribers Only – Subscribe Now',
-      modalSubtitle: 'This exclusive video, interactive quiz, and craft sheets are available to active subscribers.',
+      modalSubtitle: 'This exclusive video, audio track, quiz, and craft sheets are available to active subscribers.',
       feature1: '100% ad-free video library with clean values',
-      feature2: 'New episodes and printable craft sheets every week',
+      feature2: 'New episodes, audio tracks, and printable sheets every week',
       feature3: 'Interactive quizzes that reinforce Torah knowledge',
       joinBtn: 'Subscribe Now & Unlock Full Access',
       alreadySubscribed: 'Already subscribed?',
@@ -399,6 +495,20 @@ export const TRANSLATIONS = {
           'High-quality printable craft & coloring sheets',
         ],
         actionBtn: 'Join Now',
+      },
+      manage: {
+        activeBadge: 'Active Subscription',
+        activeTitle: 'Your All-Access Pass is Active',
+        activeSubtitle: 'You have unlimited access to all videos, songs, quizzes, and printable craft sheets.',
+        nextBilling: 'Automatic renewal active • Renews monthly',
+        cancelBtn: 'Cancel Subscription',
+        confirmTitle: 'Cancel Subscription?',
+        confirmText: 'Are you sure you want to cancel your monthly subscription? Your access will be immediately terminated.',
+        confirmYes: 'Yes, Cancel Subscription',
+        confirmNo: 'Keep My Subscription',
+        cancelledTitle: 'Subscription Cancelled',
+        cancelledMsg: 'Your subscription has been cancelled immediately by the system without manual approval. No further charges will occur.',
+        resubscribeBtn: 'Re-activate Subscription',
       },
       premiumSlot: {
         title: 'Future Extension Slot: Premium Tier',
@@ -423,18 +533,36 @@ export const TRANSLATIONS = {
     videosPage: {
       headerTitle: 'Videos (Main Content Hub)',
       headerSubtitle: 'Watch inspiring holy tales, tzaddikim stories, and Torah adventures produced in vibrant animation.',
-      quizBtn: 'Quiz',
+      quizBtn: 'Quiz (PDF)',
       craftBtn: 'Craft Sheets',
       subscribersOnlyBadge: 'Subscribers Only',
+      freeBadge: 'Free Episode',
       watchVideo: 'Play Video',
       pauseVideo: 'Pause',
+    },
+    songsPage: {
+      headerTitle: 'Songs & Melodies (Audio Sanctuary)',
+      headerSubtitle: 'Listen to the inspiring original songs corresponding to each holy tale episode. Perfect for relaxing and singing along.',
+      nowPlaying: 'Now Playing',
+      continuousAutoplay: 'Continuous Autoplay',
+      continuousAutoplayDesc: 'Automatically starts the next song when current track ends',
+      freeTrack: 'Free Song',
+      subscribersOnly: 'Subscribers Only',
+      playTrack: 'Play',
+      pauseTrack: 'Pause',
+      nextTrack: 'Next Track',
+      prevTrack: 'Previous Track',
+      trackListTitle: 'Complete Audio Playlist',
+      unlockToListen: 'Subscribe to Listen',
     },
     quizzesCraftsPage: {
       headerTitle: 'Quizzes & Crafts (Fast-Access Directory)',
       headerSubtitle: 'A lightweight, quick-loading directory for children and parents to jump straight into activities without loading video streams.',
       quizBtn: 'Quiz',
       craftBtn: 'Craft Sheets',
+      downloadQuizPdf: 'Download Quiz (PDF)',
       badge: 'Interactive Activity',
+      freeBadge: 'Free Activity',
       downloadPrompt: 'Print & Download Activity PDF',
     },
     shopPage: {
@@ -456,6 +584,13 @@ export const TRANSLATIONS = {
     contactPage: {
       headerTitle: 'Contact Us',
       headerSubtitle: 'Complete customer care and payment gateway verification compliance.',
+      instantCancellation: {
+        badge: 'Self-Service Automated Cancellation',
+        title: 'Instant Subscription Cancellation',
+        desc: 'Need to cancel your subscription? No need to wait for customer support. Click below to cancel your recurring billing immediately.',
+        actionBtn: 'Cancel My Subscription Now',
+        alreadyCancelled: 'You do not have an active subscription to cancel.',
+      },
       form: {
         title: 'Inquiry Form',
         fullName: 'Full Name',
@@ -500,6 +635,7 @@ export const TRANSLATIONS = {
     nav: {
       subscription: 'מנויים',
       videos: 'סרטונים',
+      songs: 'שירים',
       quizzesCrafts: 'חידונים ויצירה',
       shop: 'חנות',
       contact: 'צור קשר',
@@ -514,9 +650,9 @@ export const TRANSLATIONS = {
     paywall: {
       bannerNotice: 'למנויים בלבד – הירשם עכשיו',
       modalTitle: 'למנויים בלבד – הירשם עכשיו',
-      modalSubtitle: 'צפייה בסרטון זה, פתיחת חידונים ודפי היצירה והצביעה פתוחים למנויים פעילים בלבד.',
+      modalSubtitle: 'צפייה בסרטון זה, האזנה לשירים, פתיחת חידונים ודפי היצירה והצביעה פתוחים למנויים פעילים בלבד.',
       feature1: 'גישה בלתי מוגבלת לכל מאגר הסרטונים – 100% ללא פרסומות בסביבה נקייה ובטוחה לילדים',
-      feature2: 'תכנים חדשים ומרתקים שעולים מדי שבוע',
+      feature2: 'תכנים ושירים חדשים ומרתקים שעולים מדי שבוע',
       feature3: 'חידונים אינטראקטיביים ודפי יצירה וצביעה מוכנים להדפסה',
       joinBtn: 'הירשם עכשיו וקבל גישה מלאה',
       alreadySubscribed: 'כבר מנוי?',
@@ -538,6 +674,20 @@ export const TRANSLATIONS = {
           'דפי יצירה וצביעה איכותיים מוכנים להדפסה',
         ],
         actionBtn: 'הצטרפו עכשיו',
+      },
+      manage: {
+        activeBadge: 'מנוי פעיל',
+        activeTitle: 'המנוי החודשי המלא שלך פעיל',
+        activeSubtitle: 'יש לך גישה מלאה ובלתי מוגבלת לכל הסרטונים, השירים, החידונים ודפי היצירה.',
+        nextBilling: 'חידוש אוטומטי פעיל • מתחדש מדי חודש',
+        cancelBtn: 'ביטול מנוי',
+        confirmTitle: 'ביטול המנוי?',
+        confirmText: 'האם אתה בטוח שברצונך לבטל את המנוי החודשי? המערכת תבטל את החיוב באופן מיידי.',
+        confirmYes: 'כן, בטל את המנוי עכשיו',
+        confirmNo: 'השאר את המנוי פעיל',
+        cancelledTitle: 'המנוי בוטל בהצלחה',
+        cancelledMsg: 'המנוי שלך בוטל באופן מיידי ומלא במערכת ללא צורך באישור ידני. לא יבוצעו חיובים נוספים.',
+        resubscribeBtn: 'חידוש מנוי',
       },
       premiumSlot: {
         title: 'חריץ הרחבה עתידי: מנוי פרימיום משפחתי',
@@ -562,18 +712,36 @@ export const TRANSLATIONS = {
     videosPage: {
       headerTitle: 'סרטונים',
       headerSubtitle: 'מאגר עשיר של סיפורי צדיקים מאוירים ומונפשים, באווירה נקייה ובטוחה לכל המשפחה.',
-      quizBtn: 'חידון',
+      quizBtn: 'חידון (PDF)',
       craftBtn: 'דפי יצירה',
       subscribersOnlyBadge: 'למנויים בלבד',
+      freeBadge: 'פרק חינם לכולם',
       watchVideo: 'נגן סרטון',
       pauseVideo: 'השהה',
+    },
+    songsPage: {
+      headerTitle: 'שירים ומנגינות',
+      headerSubtitle: 'האזינו לשירי הסיפורים והפרקים המקוריים והמרגשים. מושלם להאזנה נעימה ושירה בצוותא.',
+      nowPlaying: 'מתנגן כעת',
+      continuousAutoplay: 'הפעלה רציפה אוטומטית',
+      continuousAutoplayDesc: 'מעבר והשמעה אוטומטית של השיר הבא בסיום השיר הנוכחי',
+      freeTrack: 'שיר פתוח לכולם',
+      subscribersOnly: 'למנויים בלבד',
+      playTrack: 'נגן',
+      pauseTrack: 'השהה',
+      nextTrack: 'השיר הבא',
+      prevTrack: 'השיר הקודם',
+      trackListTitle: 'רשימת השירים המלאה',
+      unlockToListen: 'הירשם להאזנה',
     },
     quizzesCraftsPage: {
       headerTitle: 'חידונים ויצירה',
       headerSubtitle: 'ספרייה מהירה וקלת משקל לילדים ולהורים לכניסה ישירה לפעילויות ללא טעינת סרטונים כבדים.',
       quizBtn: 'חידון',
       craftBtn: 'דפי יצירה',
+      downloadQuizPdf: 'הורדת חידון (PDF)',
       badge: 'פעילות אינטראקטיבית',
+      freeBadge: 'פעילות חינם',
       downloadPrompt: 'הדפסה והורדת דף יצירה וצביעה',
     },
     shopPage: {
@@ -595,6 +763,13 @@ export const TRANSLATIONS = {
     contactPage: {
       headerTitle: 'צור קשר',
       headerSubtitle: 'שירות לקוחות מלא ועמידה בתקני שער הסליקה והתשלומים.',
+      instantCancellation: {
+        badge: 'מערכת שירות עצמי אוטומטית',
+        title: 'ביטול מנוי מיידי',
+        desc: 'רוצים לבטל את המנוי? אין צורך להמתין לנציג שירות. לחצו כאן לביטול החיוב החודשי באופן מיידי ומאובטח.',
+        actionBtn: 'בטל את המנוי שלי כעת',
+        alreadyCancelled: 'אין מנוי פעיל כעת לביטול.',
+      },
       form: {
         title: 'טופס פנייה לשירות לקוחות',
         fullName: 'שם מלא',

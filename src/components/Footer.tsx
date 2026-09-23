@@ -2,19 +2,27 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { TRANSLATIONS, Language } from '@/data/content';
-import { Heart, Sparkles, Mail, Phone } from 'lucide-react';
+import { Heart, Mail, Phone } from 'lucide-react';
 
 export default function Footer({ lang }: { lang: Language }) {
   const t = TRANSLATIONS[lang];
+  const logoSrc = lang === 'he' ? '/images/logo/logo-hebrew.jpeg' : '/images/logo/logo-english.jpeg';
 
   return (
     <footer className="border-t border-amber-400/25 bg-[#060c18]/95 backdrop-blur-xl py-8 sm:py-12 px-4 sm:px-6 mt-16 text-slate-300">
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center gap-6">
-        {/* Brand Logo in Footer */}
+        {/* Brand Official Logo in Footer */}
         <div className="flex items-center gap-2.5 text-white">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 shadow-md">
-            <Sparkles size={18} />
+          <div className="w-8 h-8 rounded-lg overflow-hidden border border-amber-400/50 shadow-md relative flex-shrink-0 bg-slate-900">
+            <Image
+              src={logoSrc}
+              alt={t.siteTitle}
+              fill
+              sizes="35px"
+              className="object-cover"
+            />
           </div>
           <span className="font-extrabold text-base sm:text-lg text-white">
             {t.siteTitle}
@@ -28,6 +36,9 @@ export default function Footer({ lang }: { lang: Language }) {
           </Link>
           <Link href={`/${lang}/videos`} className="hover:text-amber-300 transition-colors py-1">
             {t.nav.videos}
+          </Link>
+          <Link href={`/${lang}/songs`} className="hover:text-amber-300 transition-colors py-1">
+            {t.nav.songs}
           </Link>
           <Link href={`/${lang}/quizzes-crafts`} className="hover:text-amber-300 transition-colors py-1">
             {t.nav.quizzesCrafts}

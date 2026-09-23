@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { TRANSLATIONS, Language } from '@/data/content';
 import {
@@ -11,6 +12,7 @@ import {
   X,
   CreditCard,
   Film,
+  Music,
   HelpCircle,
   ShoppingBag,
   Mail,
@@ -45,6 +47,8 @@ export default function Header({ lang }: { lang: Language }) {
     };
   }, [mobileMenuOpen]);
 
+  const logoSrc = lang === 'he' ? '/images/logo/logo-hebrew.jpeg' : '/images/logo/logo-english.jpeg';
+
   const navItems = [
     {
       href: `/${lang}/subscription`,
@@ -57,6 +61,12 @@ export default function Header({ lang }: { lang: Language }) {
       label: t.nav.videos,
       id: 'videos',
       icon: Film,
+    },
+    {
+      href: `/${lang}/songs`,
+      label: t.nav.songs,
+      id: 'songs',
+      icon: Music,
     },
     {
       href: `/${lang}/quizzes-crafts`,
@@ -84,13 +94,20 @@ export default function Header({ lang }: { lang: Language }) {
     <>
       <header className="sticky top-10 left-0 right-0 z-[900] h-18 sm:h-20 bg-[#081020]/85 backdrop-blur-xl border-b border-amber-400/30 shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex items-center transition-all">
         <div className="flex items-center justify-between w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Brand Logo & Title */}
-          <Link href={`/${lang}/videos`} className="flex items-center gap-2.5 sm:gap-3.5 group">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 flex items-center justify-center text-slate-950 font-black shadow-[0_4px_15px_rgba(245,158,11,0.45)] border border-white/30 flex-shrink-0 group-hover:scale-105 transition-transform">
-              <Sparkles size={22} className="sm:w-6 sm:h-6" />
+          {/* Brand Official Logo & Title */}
+          <Link href={`/${lang}/videos`} className="flex items-center gap-2.5 sm:gap-3 group">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-amber-400/60 shadow-[0_0_12px_rgba(245,158,11,0.4)] relative flex-shrink-0 group-hover:scale-105 transition-transform bg-slate-900">
+              <Image
+                src={logoSrc}
+                alt={t.siteTitle}
+                fill
+                sizes="50px"
+                className="object-cover"
+                priority
+              />
             </div>
             <div className="flex flex-col">
-              <span className="text-base sm:text-lg font-black leading-tight bg-gradient-to-r from-white via-amber-100 to-amber-300 bg-clip-text text-transparent">
+              <span className="text-sm sm:text-base lg:text-lg font-black leading-tight bg-gradient-to-r from-white via-amber-100 to-amber-300 bg-clip-text text-transparent">
                 {t.siteTitle}
               </span>
               <span className="text-[10px] sm:text-xs text-sky-200/70 font-semibold hidden xs:inline-block">
@@ -180,8 +197,14 @@ export default function Header({ lang }: { lang: Language }) {
             <div>
               <div className="flex items-center justify-between p-4 border-b border-white/10 bg-[#0d1a33]/70">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 font-bold shadow-md">
-                    <Sparkles size={18} />
+                  <div className="w-8 h-8 rounded-lg overflow-hidden border border-amber-400/50 shadow-md relative flex-shrink-0 bg-slate-900">
+                    <Image
+                      src={logoSrc}
+                      alt={t.siteTitle}
+                      fill
+                      sizes="35px"
+                      className="object-cover"
+                    />
                   </div>
                   <div className="flex flex-col">
                     <span className="font-bold text-sm text-white leading-tight">

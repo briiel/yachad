@@ -18,13 +18,14 @@ export default async function BilingualLayout({
 
   return (
     <div dir={lang === 'he' ? 'rtl' : 'ltr'} lang={lang} className="min-h-screen relative text-slate-100 flex flex-col justify-between overflow-x-hidden">
-      {/* Consistent master background layer */}
+      {/* Consistent master background layer - Sharp, Clear & Unblurred */}
       <div
-        className="fixed inset-0 -z-20 bg-cover bg-[center_top_8%] sm:bg-center bg-no-repeat scale-[1.01]"
+        className="fixed inset-0 -z-20 bg-cover bg-[center_top_6%] sm:bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/images/yachad-bg.jpeg')" }}
       />
-      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-[#070c18]/72 via-[#0a1326]/80 to-[#060c18]/92 backdrop-blur-[2px] pointer-events-none" />
-      <div className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(56,189,248,0.12)_0%,transparent_60%)] pointer-events-none" />
+      {/* Subtle non-blur overlay to preserve vividness and sharpness of the character artwork */}
+      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-[#060c18]/35 via-[#081224]/45 to-[#060c18]/60 pointer-events-none" />
+      <div className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(5,10,20,0.55)_100%)] pointer-events-none" />
 
       {/* Prototype simulator top switcher */}
       <SimulatorBar lang={lang} />

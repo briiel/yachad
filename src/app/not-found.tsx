@@ -10,7 +10,7 @@ export default function NotFound() {
         className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat scale-[1.01]"
         style={{ backgroundImage: "url('/images/yachad-bg.jpeg')" }}
       />
-      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-[#060c18]/70 via-[#0a1326]/80 to-[#060c18]/92 backdrop-blur-[2px] pointer-events-none" />
+      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-[#060c18]/40 via-[#0a1326]/55 to-[#060c18]/70 pointer-events-none" />
 
       <div className="max-w-md mx-auto p-8 rounded-3xl bg-[#091224]/85 border-2 border-amber-400/50 shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(245,158,11,0.2)] backdrop-blur-xl relative z-10">
         <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 text-slate-950 flex items-center justify-center mx-auto mb-4 border border-white/30 shadow-lg">

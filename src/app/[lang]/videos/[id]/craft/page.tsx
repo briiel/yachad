@@ -40,6 +40,7 @@ export default function EpisodeCraftPage({
     notFound();
   }
 
+  const canAccess = isSubscriber || episode.isFree;
   const t = TRANSLATIONS[lang];
   const epTitle = lang === 'he' ? episode.hebrewTitle : episode.title;
   const epDesc = lang === 'he' ? episode.hebrewDescription : episode.description;
@@ -54,7 +55,7 @@ export default function EpisodeCraftPage({
   return (
     <div className="w-full max-w-5xl mx-auto pb-16">
       {/* Top Navigation Bar */}
-      <nav className="flex items-center justify-between gap-3 mb-6 sm:mb-8 flex-wrap">
+      <nav className="flex items-center justify-between gap-3 mb-6 sm:mb-8 flex-wrap no-print">
         <Link
           href={`/${lang}/videos`}
           className="inline-flex items-center gap-2 py-2 px-4 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 border border-white/15 text-white hover:border-amber-400/50 transition-all shadow-sm"
@@ -102,7 +103,7 @@ export default function EpisodeCraftPage({
       </header>
 
       {/* Paywall Check */}
-      {!isSubscriber ? (
+      {!canAccess ? (
         <section className="bg-gradient-to-br from-[#0d1b38] via-[#091326] to-[#060c18] border-2 border-amber-400/60 rounded-3xl p-8 sm:p-12 text-center shadow-2xl">
           <div className="w-20 h-20 rounded-full bg-gradient-to-br from-amber-500/20 to-amber-600/40 text-amber-300 flex items-center justify-center mx-auto mb-5 border-2 border-amber-400 shadow-xl">
             <Lock size={36} />

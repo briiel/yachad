@@ -37,6 +37,7 @@ export default function EpisodeQuizPage({
     notFound();
   }
 
+  const canAccess = isSubscriber || episode.isFree;
   const questions = EPISODE_QUIZZES[episode.id] || EPISODE_QUIZZES['ep-1'];
   const t = TRANSLATIONS[lang];
 
@@ -57,6 +58,10 @@ export default function EpisodeQuizPage({
     setShowResults(false);
   };
 
+  const handlePrintPdf = () => {
+    window.print();
+  };
+
   const calculateScore = () => {
     let score = 0;
     questions.forEach((q, idx) => {
@@ -74,7 +79,7 @@ export default function EpisodeQuizPage({
   return (
     <div className="w-full max-w-4xl mx-auto pb-16">
       {/* Top Navigation Bar */}
-      <nav className="flex items-center justify-between gap-3 mb-6 sm:mb-8 flex-wrap">
+      <nav className="flex items-center justify-between gap-3 mb-6 sm:mb-8 flex-wrap no-print">
         <Link
           href={`/${lang}/videos`}
           className="inline-flex items-center gap-2 py-2 px-4 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 border border-white/15 text-white hover:border-amber-400/50 transition-all shadow-sm"
@@ -83,13 +88,27 @@ export default function EpisodeQuizPage({
           <span>{lang === 'he' ? 'חזרה לסרטונים' : 'Back to Videos'}</span>
         </Link>
 
-        <Link
-          href={`/${lang}/quizzes-crafts`}
-          className="inline-flex items-center gap-2 py-2 px-4 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 border border-white/15 text-white hover:border-amber-400/50 transition-all shadow-sm"
-        >
-          <BookOpen size={16} className="text-amber-400" />
-          <span>{lang === 'he' ? 'כל החידונים ודפי היצירה' : 'All Quizzes & Crafts'}</span>
-        </Link>
+        <div className="flex items-center gap-2">
+          {canAccess && (
+            <button
+              type="button"
+              onClick={handlePrintPdf}
+              className="inline-flex items-center gap-2 py-2 px-4 rounded-xl text-xs sm:text-sm font-bold bg-sky-500/20 hover:bg-sky-500/30 border border-sky-400/40 text-sky-200 hover:text-white transition-all shadow-sm cursor-pointer"
+              title={lang === 'he' ? 'הורדה והדפסה של החידון כקובץ PDF' : 'Download & Print Quiz PDF'}
+            >
+              <BookOpen size={16} className="text-sky-300" />
+              <span>{lang === 'he' ? 'הורדת חידון (PDF)' : 'Download Quiz (PDF)'}</span>
+            </button>
+          )}
+
+          <Link
+            href={`/${lang}/quizzes-crafts`}
+            className="inline-flex items-center gap-2 py-2 px-4 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 border border-white/15 text-white hover:border-amber-400/50 transition-all shadow-sm"
+          >
+            <Sparkles size={16} className="text-amber-400" />
+            <span>{lang === 'he' ? 'כל החידונים ויצירה' : 'All Quizzes & Crafts'}</span>
+          </Link>
+        </div>
       </nav>
 
       {/* Episode Header Banner */}
@@ -109,7 +128,7 @@ export default function EpisodeQuizPage({
           <div className="flex-1 text-center sm:text-start min-w-0">
             <div className="inline-flex items-center gap-1.5 py-1 px-3 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 mb-2">
               <Sparkles size={14} />
-              <span>{epBadge} • {lang === 'he' ? 'חידון תוכן אינטראקטיבי' : 'Interactive Torah Quiz'}</span>
+              <span>{epBadge} • {lang === 'he' ? 'חידון תוכן אינטראקטיבי וקובץ להדפסה' : 'Interactive Torah Quiz & Printable Worksheet'}</span>
             </div>
             <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-2 leading-tight">
               {epTitle}
@@ -122,7 +141,7 @@ export default function EpisodeQuizPage({
       </header>
 
       {/* Paywall Check */}
-      {!isSubscriber ? (
+      {!canAccess ? (
         <section className="bg-gradient-to-br from-[#0d1b38] via-[#091326] to-[#060c18] border-2 border-amber-400/60 rounded-3xl p-8 sm:p-12 text-center shadow-2xl">
           <div className="w-20 h-20 rounded-full bg-gradient-to-br from-amber-500/20 to-amber-600/40 text-amber-300 flex items-center justify-center mx-auto mb-5 border-2 border-amber-400 shadow-xl">
             <Lock size={36} />
@@ -134,8 +153,8 @@ export default function EpisodeQuizPage({
 
           <p className="max-w-md mx-auto mb-8 text-sm text-slate-300 leading-relaxed">
             {lang === 'he'
-              ? `החידון האינטראקטיבי עבור ״${epTitle}״ פתוח לצפייה ולמענה למנויים פעילים בלבד. הצטרפו עכשיו כדי לפתוח את כל החידונים, הסרטונים ודפי היצירה!`
-              : `The interactive quiz for "${epTitle}" is exclusively available to active subscribers. Join now to unlock all episode quizzes, videos, and printable crafts!`}
+              ? `החידון האינטראקטיבי וקובץ ה-PDF עבור ״${epTitle}״ פתוחים למנויים פעילים בלבד. הצטרפו עכשיו כדי לפתוח את כל החידונים, הסרטונים ודפי היצירה!`
+              : `The interactive quiz and printable PDF for "${epTitle}" are exclusively available to active subscribers. Join now to unlock all episode quizzes, videos, and printable crafts!`}
           </p>
 
           <Link
@@ -145,12 +164,6 @@ export default function EpisodeQuizPage({
             <Sparkles size={20} />
             <span>{t.paywall.joinBtn}</span>
           </Link>
-
-          <div className="text-xs text-slate-400 mt-2">
-            {lang === 'he'
-              ? '💡 הערת בדיקה לפרוטוטייפ: ניתן להפעיל ״מצב מנוי״ בסרגל העליון כדי לבדוק את החידון באופן מלא.'
-              : '💡 Prototype testing tip: Switch to "Subscriber View" in the top bar to test the quiz immediately.'}
-          </div>
         </section>
       ) : (
         /* Unlocked Interactive Quiz Arena */

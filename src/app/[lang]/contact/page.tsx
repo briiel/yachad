@@ -2,6 +2,7 @@
 
 import React, { useState, use } from 'react';
 import { TRANSLATIONS, Language } from '@/data/content';
+import { usePaywall } from '@/context/PaywallContext';
 import {
   Mail,
   Phone,
@@ -15,6 +16,8 @@ import {
   Sparkles,
   Shield,
   BadgeCheck,
+  XCircle,
+  AlertCircle,
 } from 'lucide-react';
 
 export default function ContactPage({
@@ -25,14 +28,25 @@ export default function ContactPage({
   const resolvedParams = use(params);
   const lang: Language = resolvedParams.lang === 'he' ? 'he' : 'en';
   const t = TRANSLATIONS[lang].contactPage;
+  const { isSubscriber, setSubscriber } = usePaywall();
 
   const [submitted, setSubmitted] = useState(false);
+  const [instantCancelStatus, setInstantCancelStatus] = useState<'idle' | 'success' | 'no_sub'>('idle');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     subject: t.form.subjects[0],
     message: '',
   });
+
+  const handleInstantCancel = () => {
+    if (isSubscriber) {
+      setSubscriber(false);
+      setInstantCancelStatus('success');
+    } else {
+      setInstantCancelStatus('no_sub');
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -266,7 +280,7 @@ export default function ContactPage({
               <span>{lang === 'he' ? 'נושאים נפוצים לפנייה' : 'Common Assistance Topics'}</span>
             </h3>
 
-            <ul className="space-y-2.5 text-xs text-slate-200 list-none">
+            <ul className="space-y-2.5 text-xs text-slate-200 list-none mb-5">
               <li className="flex items-center gap-2.5">
                 <BadgeCheck size={16} className="text-emerald-400 flex-shrink-0" />
                 <span>{lang === 'he' ? 'ניהול מנויים, שינוי מסלול או ביטולים' : 'Subscription management, upgrades, or billing'}</span>
@@ -280,6 +294,40 @@ export default function ContactPage({
                 <span>{lang === 'he' ? 'הצעות לסיפורי צדיקים ומשוב תכנים' : 'Suggestions for new holy tales & feedback'}</span>
               </li>
             </ul>
+
+            {/* Instant Automated Cancellation Tool */}
+            <div className="pt-4 border-t border-white/10">
+              <div className="p-3.5 rounded-2xl bg-rose-950/40 border border-rose-500/30">
+                <div className="flex items-center gap-2 text-rose-300 font-bold text-xs mb-1">
+                  <XCircle size={15} />
+                  <span>{t.instantCancellation.title}</span>
+                </div>
+                <p className="text-[11px] text-slate-300 mb-3 leading-relaxed">
+                  {t.instantCancellation.desc}
+                </p>
+
+                {instantCancelStatus === 'idle' ? (
+                  <button
+                    type="button"
+                    onClick={handleInstantCancel}
+                    className="w-full py-2 px-3 rounded-xl text-xs font-bold bg-rose-500/20 hover:bg-rose-500/30 border border-rose-400/40 text-rose-200 hover:text-white transition-all cursor-pointer text-center"
+                    id="contact-instant-cancel-btn"
+                  >
+                    {t.instantCancellation.actionBtn}
+                  </button>
+                ) : instantCancelStatus === 'success' ? (
+                  <div className="text-[11px] text-emerald-300 bg-emerald-950/50 p-2.5 rounded-xl border border-emerald-400/40 font-semibold flex items-center gap-1.5">
+                    <CheckCircle2 size={15} className="flex-shrink-0" />
+                    <span>{lang === 'he' ? 'המנוי שלך בוטל באופן מיידי במערכת! לא יבוצעו חיובים נוספים.' : 'Your subscription has been cancelled immediately! No further charges will occur.'}</span>
+                  </div>
+                ) : (
+                  <div className="text-[11px] text-amber-300 bg-amber-950/50 p-2.5 rounded-xl border border-amber-400/40 font-semibold flex items-center gap-1.5">
+                    <AlertCircle size={15} className="flex-shrink-0" />
+                    <span>{t.instantCancellation.alreadyCancelled}</span>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
 
           {/* Family Trust & Safe Environment Guarantee */}
