@@ -19,8 +19,15 @@ export default function SimulatorBar({ lang }: { lang: Language }) {
           className={`flex-shrink-0 w-2.5 h-2.5 rounded-full ${isSubscriber ? 'bg-emerald-400 shadow-[0_0_8px_#34d399]' : 'bg-rose-400 shadow-[0_0_8px_#fb7185]'
             }`}
         />
-        <span className="truncate max-w-[125px] min-[360px]:max-w-[160px] min-[420px]:max-w-[220px] sm:max-w-none text-slate-200 font-semibold">
-          {isSubscriber ? t.subscriberState : t.visitorState}
+        <span className="text-slate-200 font-semibold truncate">
+          <span className="sm:hidden">
+            {isSubscriber
+              ? (lang === 'he' ? 'מנוי פעיל' : 'Active Subscriber')
+              : (lang === 'he' ? 'מצב אורח (נעול)' : 'Guest (Paywalled)')}
+          </span>
+          <span className="hidden sm:inline">
+            {isSubscriber ? t.subscriberState : t.visitorState}
+          </span>
         </span>
       </div>
 

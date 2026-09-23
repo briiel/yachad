@@ -107,8 +107,8 @@ export default function Header({ lang }: { lang: Language }) {
 
   return (
     <>
-      <header className="sticky top-10 left-0 right-0 z-[900] h-18 sm:h-20 bg-[#081020]/85 backdrop-blur-xl border-b border-amber-400/30 shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex items-center transition-all">
-        <div className="flex items-center justify-between w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header className="sticky top-10 left-0 right-0 z-[900] min-h-[4.25rem] sm:h-20 py-2 sm:py-0 bg-[#081020]/85 backdrop-blur-xl border-b border-amber-400/30 shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex items-center transition-all">
+        <div className="flex items-center justify-between w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           {/* Brand Official Logo & Title */}
           <Link href={`/${lang}/videos`} className="flex items-center gap-2 sm:gap-3 group min-w-0 flex-1 me-2 sm:me-4">
             <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-amber-400/60 shadow-[0_0_12px_rgba(245,158,11,0.4)] relative flex-shrink-0 group-hover:scale-105 transition-transform bg-slate-900">
@@ -121,11 +121,11 @@ export default function Header({ lang }: { lang: Language }) {
                 priority
               />
             </div>
-            <div className="flex flex-col min-w-0">
-              <span className="text-xs min-[360px]:text-sm sm:text-base lg:text-lg font-black leading-tight bg-gradient-to-r from-white via-amber-100 to-amber-300 bg-clip-text text-transparent truncate sm:whitespace-normal">
+            <div className="flex flex-col min-w-0 justify-center">
+              <span className="text-xs min-[360px]:text-[13px] min-[400px]:text-sm sm:text-base lg:text-lg font-black leading-tight sm:leading-snug bg-gradient-to-r from-white via-amber-100 to-amber-300 bg-clip-text text-transparent whitespace-normal break-words">
                 {t.siteTitle}
               </span>
-              <span className="text-[10px] sm:text-xs text-sky-200/70 font-semibold hidden xs:inline-block truncate">
+              <span className="text-[10px] sm:text-xs text-sky-200/70 font-semibold hidden md:inline-block truncate">
                 {t.siteSubtitle}
               </span>
             </div>
