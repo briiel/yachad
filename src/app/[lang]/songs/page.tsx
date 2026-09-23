@@ -189,15 +189,13 @@ export default function SongsPage({
             <button
               type="button"
               onClick={() => setContinuousAutoplay(!continuousAutoplay)}
-              className={`w-11 h-6 rounded-full transition-colors relative cursor-pointer flex-shrink-0 ms-2 ${
-                continuousAutoplay ? 'bg-amber-500' : 'bg-slate-700'
-              }`}
+              className={`w-11 h-6 rounded-full transition-colors relative cursor-pointer flex-shrink-0 ms-2 ${continuousAutoplay ? 'bg-amber-500' : 'bg-slate-700'
+                }`}
               title="Toggle continuous autoplay"
             >
               <span
-                className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-transform ${
-                  continuousAutoplay ? (lang === 'he' ? 'left-1' : 'right-1') : (lang === 'he' ? 'right-1' : 'left-1')
-                }`}
+                className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-transform ${continuousAutoplay ? (lang === 'he' ? 'left-1' : 'right-1') : (lang === 'he' ? 'right-1' : 'left-1')
+                  }`}
               />
             </button>
           </div>
@@ -243,7 +241,7 @@ export default function SongsPage({
             </div>
 
             {/* Scrubber Bar & Timers */}
-            <div className="space-y-1.5 mb-6">
+            <div className="space-y-2 mb-6">
               <input
                 type="range"
                 min={0}
@@ -251,7 +249,7 @@ export default function SongsPage({
                 value={currentTime}
                 onChange={handleScrubberChange}
                 disabled={!canAccessCurrent}
-                className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-amber-400"
+                className="w-full h-3 sm:h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-amber-400"
               />
               <div className="flex justify-between text-xs text-slate-400 font-mono">
                 <span>{formatSeconds(currentTime)}</span>
@@ -260,12 +258,12 @@ export default function SongsPage({
             </div>
 
             {/* Playback Buttons Bar */}
-            <div className="flex items-center justify-center md:justify-start gap-4 sm:gap-6">
+            <div className="flex items-center justify-center md:justify-start gap-3 sm:gap-6">
               {/* Previous Track */}
               <button
                 type="button"
                 onClick={handlePrevTrack}
-                className="p-2 sm:p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all active:scale-95 cursor-pointer"
+                className="w-10 h-10 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-all active:scale-95 cursor-pointer"
                 title={t.prevTrack}
               >
                 <SkipBack size={20} />
@@ -291,7 +289,7 @@ export default function SongsPage({
               <button
                 type="button"
                 onClick={handleNextTrack}
-                className="p-2 sm:p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all active:scale-95 cursor-pointer"
+                className="w-10 h-10 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-all active:scale-95 cursor-pointer"
                 title={t.nextTrack}
               >
                 <SkipForward size={20} />
@@ -306,7 +304,7 @@ export default function SongsPage({
                     setIsMuted(!isMuted);
                   }
                 }}
-                className="p-2 sm:p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all active:scale-95 cursor-pointer ms-2"
+                className="w-10 h-10 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-all active:scale-95 cursor-pointer ms-1 sm:ms-2"
                 title={isMuted ? 'Unmute' : 'Mute'}
               >
                 {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
@@ -317,7 +315,7 @@ export default function SongsPage({
       </div>
 
       {/* Complete Audio Playlist */}
-      <section className="bg-[#091326]/80 border border-amber-400/30 rounded-3xl p-5 sm:p-8 shadow-xl backdrop-blur-md">
+      <section className="bg-[#091326]/80 border border-amber-400/30 rounded-3xl p-4 sm:p-8 shadow-xl backdrop-blur-md">
         <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
           <h2 className="text-lg sm:text-xl font-black text-white flex items-center gap-2">
             <Music size={18} className="text-amber-400" />
@@ -338,15 +336,14 @@ export default function SongsPage({
               <div
                 key={song.id}
                 onClick={() => handleSelectTrack(idx)}
-                className={`flex items-center justify-between gap-3 p-3 sm:p-3.5 rounded-2xl cursor-pointer transition-all duration-200 ${
-                  isCurrent
+                className={`flex items-center justify-between gap-2.5 sm:gap-3 p-2.5 sm:p-3.5 rounded-2xl cursor-pointer transition-all duration-200 ${isCurrent
                     ? 'bg-amber-500/20 border-2 border-amber-400/70 shadow-md'
                     : 'bg-white/5 hover:bg-white/10 border border-white/10'
-                }`}
+                  }`}
               >
                 {/* Left: Track #, Thumb, Title */}
-                <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-7 text-center font-bold text-xs text-amber-300 font-mono">
+                <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
+                  <div className="w-5 sm:w-7 text-center font-bold text-xs text-amber-300 font-mono flex-shrink-0">
                     {isCurrent && isPlaying ? (
                       <span className="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse" />
                     ) : (
@@ -354,7 +351,7 @@ export default function SongsPage({
                     )}
                   </div>
 
-                  <div className="relative w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 border border-white/15 bg-black">
+                  <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl overflow-hidden flex-shrink-0 border border-white/15 bg-black">
                     <Image
                       src={song.thumbnail}
                       alt={songTitle}
@@ -364,7 +361,7 @@ export default function SongsPage({
                     />
                   </div>
 
-                  <div className="min-w-0">
+                  <div className="min-w-0 flex-1">
                     <h3 className={`text-xs sm:text-sm font-bold truncate ${isCurrent ? 'text-amber-300' : 'text-white'}`}>
                       {songTitle}
                     </h3>
@@ -375,7 +372,7 @@ export default function SongsPage({
                 </div>
 
                 {/* Right: Badge & Play / Lock Indicator */}
-                <div className="flex items-center gap-3 flex-shrink-0">
+                <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
                   {song.isFree ? (
                     <span className="py-0.5 px-2 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40">
                       {t.freeTrack}
@@ -393,11 +390,10 @@ export default function SongsPage({
 
                   <button
                     type="button"
-                    className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
-                      isCurrent && isPlaying
+                    className={`w-9 h-9 min-w-[36px] min-h-[36px] rounded-full flex items-center justify-center transition-all ${isCurrent && isPlaying
                         ? 'bg-amber-400 text-slate-950 font-bold'
                         : 'bg-white/10 hover:bg-white/20 text-white'
-                    }`}
+                      }`}
                     title={isCurrent && isPlaying ? t.pauseTrack : t.playTrack}
                   >
                     {!canAccess ? (

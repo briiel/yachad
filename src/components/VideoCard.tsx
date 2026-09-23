@@ -149,39 +149,41 @@ export default function VideoCard({
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-2 sm:p-3 flex items-center gap-2 sm:gap-3 z-20">
             <button
               type="button"
-              className="p-1 sm:p-1.5 text-white hover:text-amber-400 transition-colors cursor-pointer"
+              className="p-1.5 min-w-[34px] min-h-[34px] flex items-center justify-center text-white hover:text-amber-400 transition-colors cursor-pointer"
               onClick={handlePlayClick}
               title={isPlaying ? t.pauseVideo : t.watchVideo}
             >
-              {isPlaying ? <Pause size={16} /> : <Play size={16} />}
+              {isPlaying ? <Pause size={17} /> : <Play size={17} />}
             </button>
 
             <div
-              className="flex-1 h-1.5 bg-white/30 rounded-full cursor-pointer overflow-hidden"
+              className="flex-1 py-2 cursor-pointer flex items-center"
               onClick={handleProgressClick}
             >
-              <div
-                className="h-full bg-amber-400 rounded-full transition-all"
-                style={{ width: `${progress}%` }}
-              />
+              <div className="w-full h-1.5 bg-white/30 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-amber-400 rounded-full transition-all"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
             </div>
 
             <button
               type="button"
-              className="p-1 sm:p-1.5 text-white hover:text-amber-400 transition-colors cursor-pointer"
+              className="p-1.5 min-w-[34px] min-h-[34px] flex items-center justify-center text-white hover:text-amber-400 transition-colors cursor-pointer"
               onClick={handleMuteToggle}
               title="Mute/Unmute"
             >
-              {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+              {isMuted ? <VolumeX size={17} /> : <Volume2 size={17} />}
             </button>
 
             <button
               type="button"
-              className="p-1 sm:p-1.5 text-white hover:text-amber-400 transition-colors cursor-pointer"
+              className="p-1.5 min-w-[34px] min-h-[34px] flex items-center justify-center text-white hover:text-amber-400 transition-colors cursor-pointer"
               onClick={handleFullscreen}
               title="Fullscreen"
             >
-              <Maximize size={16} />
+              <Maximize size={17} />
             </button>
           </div>
         )}
@@ -211,7 +213,7 @@ export default function VideoCard({
                 openPaywall(title);
               }
             }}
-            className="flex items-center justify-center gap-1.5 py-2 sm:py-2.5 px-2.5 sm:px-3 rounded-xl text-xs sm:text-sm font-bold bg-[#0c1c38]/90 hover:bg-[#122850] border border-sky-400/40 text-sky-200 hover:text-white transition-all active:scale-95 text-center shadow-sm"
+            className="flex items-center justify-center gap-1.5 py-2.5 px-2.5 sm:px-3 min-h-[42px] rounded-xl text-xs sm:text-sm font-bold bg-[#0c1c38]/90 hover:bg-[#122850] border border-sky-400/40 text-sky-200 hover:text-white transition-all active:scale-95 text-center shadow-sm"
           >
             <HelpCircle size={15} className="text-sky-300 flex-shrink-0" />
             <span className="truncate">{t.quizBtn}</span>
@@ -227,7 +229,7 @@ export default function VideoCard({
                 openPaywall(title);
               }
             }}
-            className="flex items-center justify-center gap-1.5 py-2 sm:py-2.5 px-2.5 sm:px-3 rounded-xl text-xs sm:text-sm font-bold bg-amber-500/15 hover:bg-amber-500/25 border border-amber-400/50 text-amber-300 hover:text-amber-200 transition-all active:scale-95 text-center shadow-sm"
+            className="flex items-center justify-center gap-1.5 py-2.5 px-2.5 sm:px-3 min-h-[42px] rounded-xl text-xs sm:text-sm font-bold bg-amber-500/15 hover:bg-amber-500/25 border border-amber-400/50 text-amber-300 hover:text-amber-200 transition-all active:scale-95 text-center shadow-sm"
           >
             <Palette size={15} className="text-amber-400 flex-shrink-0" />
             <span className="truncate">{t.craftBtn}</span>

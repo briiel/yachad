@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { usePaywall } from '@/context/PaywallContext';
 import { TRANSLATIONS, Language } from '@/data/content';
@@ -11,6 +11,17 @@ export default function InteractiveResourceModal({ lang }: { lang: Language }) {
   const [purchaseStep, setPurchaseStep] = useState<'idle' | 'success'>('idle');
   const t = TRANSLATIONS[lang];
 
+  // Close modal on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeComicCheckout();
+    };
+    if (activeComic) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeComic, closeComicCheckout]);
+
   // Comic Book Checkout Modal
   if (activeComic) {
     const comicTitle = lang === 'he' ? activeComic.hebrewTitle : activeComic.title;
@@ -18,19 +29,19 @@ export default function InteractiveResourceModal({ lang }: { lang: Language }) {
 
     return (
       <div
-        className="fixed inset-0 z-[2000] bg-[#060c18]/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn"
+        className="fixed inset-0 z-[2000] bg-[#060c18]/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn overscroll-contain"
         onClick={closeComicCheckout}
         role="dialog"
         aria-modal="true"
       >
         <div
-          className="relative w-full max-w-md max-h-[92vh] overflow-y-auto bg-gradient-to-br from-[#0d1b38] via-[#091326] to-[#060c18] border-2 border-amber-400/70 rounded-3xl p-6 sm:p-8 shadow-2xl text-center"
+          className="relative w-full max-w-md max-h-[90dvh] overflow-y-auto bg-gradient-to-br from-[#0d1b38] via-[#091326] to-[#060c18] border-2 border-amber-400/70 rounded-3xl p-5 sm:p-8 shadow-2xl text-center"
           onClick={(e) => e.stopPropagation()}
         >
           <button
             type="button"
             onClick={closeComicCheckout}
-            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-rose-600 border border-white/15 text-white flex items-center justify-center transition-colors cursor-pointer z-10"
+            className="absolute top-3.5 sm:top-4 end-3.5 sm:end-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-rose-600 border border-white/15 text-white flex items-center justify-center transition-colors cursor-pointer z-10"
             aria-label="Close modal"
           >
             <X size={18} />

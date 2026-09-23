@@ -49,7 +49,7 @@ export default function QuizzesCraftsPage({
               className="flex flex-row items-stretch bg-[#091326]/75 border border-sky-400/25 hover:border-amber-400/50 rounded-2xl overflow-hidden shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 group"
             >
               {/* Compact Thumbnail (Refined width for mobile to keep background visible) */}
-              <div className="relative w-28 sm:w-44 md:w-48 flex-shrink-0 overflow-hidden bg-black select-none">
+              <div className="relative w-24 min-[360px]:w-28 sm:w-44 md:w-48 flex-shrink-0 overflow-hidden bg-black select-none">
                 <Image
                   src={ep.thumbnail}
                   alt={title}
@@ -58,7 +58,7 @@ export default function QuizzesCraftsPage({
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30" />
-                
+
                 {/* Badge overlay on thumbnail */}
                 <div className="absolute top-2 start-2 z-10">
                   {ep.isFree ? (
@@ -69,7 +69,7 @@ export default function QuizzesCraftsPage({
                   ) : !canAccess ? (
                     <span className="inline-flex items-center gap-1 py-0.5 px-2 rounded-md text-[10px] font-bold bg-rose-500 text-white shadow-md">
                       <Lock size={10} />
-                      <span className="hidden xs:inline">{lang === 'he' ? 'מנויים' : 'Locked'}</span>
+                      <span className="hidden min-[360px]:inline">{lang === 'he' ? 'מנויים' : 'Locked'}</span>
                     </span>
                   ) : (
                     <span className="inline-flex items-center gap-1 py-0.5 px-2 rounded-md text-[10px] font-semibold bg-[#060c18]/85 text-slate-200 border border-white/10">
@@ -96,7 +96,7 @@ export default function QuizzesCraftsPage({
 
                 {/* Action Buttons: Clear distinct styling from video cards */}
                 <div className="grid grid-cols-2 gap-2 pt-2 border-t border-white/10 mt-auto">
-                  {/* Button 1: Download Quiz (PDF) */}
+                  {/* Button 1: Quiz Link */}
                   <Link
                     href={canAccess ? quizUrl : `/${lang}/subscription`}
                     onClick={(e) => {
@@ -105,11 +105,12 @@ export default function QuizzesCraftsPage({
                         openPaywall(title);
                       }
                     }}
-                    className="flex items-center justify-center gap-1 sm:gap-1.5 py-1.5 sm:py-2 px-2 rounded-xl text-[11px] sm:text-xs font-bold bg-[#0e2246] hover:bg-[#16356e] border border-sky-400/40 text-sky-200 hover:text-white transition-all active:scale-95 text-center shadow-sm"
+                    className="flex items-center justify-center gap-1 sm:gap-1.5 py-2 px-2 min-h-[40px] rounded-xl text-[11px] sm:text-xs font-bold bg-[#0e2246] hover:bg-[#16356e] border border-sky-400/40 text-sky-200 hover:text-white transition-all active:scale-95 text-center shadow-sm"
                     title={t.downloadQuizPdf || 'Download Quiz PDF'}
                   >
                     <Download size={13} className="text-sky-300 flex-shrink-0" />
-                    <span className="truncate">{t.downloadQuizPdf || t.quizBtn}</span>
+                    <span className="truncate hidden sm:inline">{t.downloadQuizPdf || t.quizBtn}</span>
+                    <span className="truncate sm:hidden">{t.quizBtn}</span>
                     {!canAccess && <Lock size={11} className="text-rose-400 flex-shrink-0" />}
                   </Link>
 
@@ -122,7 +123,7 @@ export default function QuizzesCraftsPage({
                         openPaywall(title);
                       }
                     }}
-                    className="flex items-center justify-center gap-1 sm:gap-1.5 py-1.5 sm:py-2 px-2 rounded-xl text-[11px] sm:text-xs font-bold bg-amber-500/15 hover:bg-amber-500/25 border border-amber-400/40 text-amber-300 hover:text-amber-200 transition-all active:scale-95 text-center shadow-sm"
+                    className="flex items-center justify-center gap-1 sm:gap-1.5 py-2 px-2 min-h-[40px] rounded-xl text-[11px] sm:text-xs font-bold bg-amber-500/15 hover:bg-amber-500/25 border border-amber-400/40 text-amber-300 hover:text-amber-200 transition-all active:scale-95 text-center shadow-sm"
                   >
                     <Palette size={13} className="text-amber-400 flex-shrink-0" />
                     <span className="truncate">{t.craftBtn}</span>

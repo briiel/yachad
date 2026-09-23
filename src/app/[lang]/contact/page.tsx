@@ -72,7 +72,7 @@ export default function ContactPage({
       {/* Main 2-Column Balanced Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-14">
         {/* Left Column (7 Cols on lg): Inquiry Form */}
-        <div className="lg:col-span-7 bg-[#091326]/95 border border-amber-400/35 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
+        <div className="lg:col-span-7 bg-[#091326]/95 border border-amber-400/35 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl backdrop-blur-xl">
           <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
             <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center flex-shrink-0 border border-amber-400/30">
               <MessageSquare size={20} />
@@ -213,7 +213,7 @@ export default function ContactPage({
         {/* Right Column (5 Cols on lg): Direct Channels, Help Topics & Trust Seal */}
         <div className="lg:col-span-5 flex flex-col gap-6">
           {/* Direct Support Channels Card */}
-          <div className="bg-[#091326]/95 border border-amber-400/35 rounded-3xl p-6 sm:p-7 shadow-xl backdrop-blur-xl">
+          <div className="bg-[#091326]/95 border border-amber-400/35 rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-xl backdrop-blur-xl">
             <h2 className="text-lg sm:text-xl font-black text-white mb-4 flex items-center gap-2">
               <Sparkles size={18} className="text-amber-400" />
               <span>{t.directSupport.title}</span>
@@ -310,7 +310,7 @@ export default function ContactPage({
                   <button
                     type="button"
                     onClick={handleInstantCancel}
-                    className="w-full py-2 px-3 rounded-xl text-xs font-bold bg-rose-500/20 hover:bg-rose-500/30 border border-rose-400/40 text-rose-200 hover:text-white transition-all cursor-pointer text-center"
+                    className="w-full py-2.5 px-3 min-h-[40px] rounded-xl text-xs font-bold bg-rose-500/20 hover:bg-rose-500/30 border border-rose-400/40 text-rose-200 hover:text-white transition-all cursor-pointer text-center"
                     id="contact-instant-cancel-btn"
                   >
                     {t.instantCancellation.actionBtn}
@@ -349,7 +349,7 @@ export default function ContactPage({
 
       {/* Policy Section: Clear section covering terms, returns, and order cancellations */}
       <section
-        className="bg-[#091326]/90 border border-amber-400/30 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-xl"
+        className="bg-[#091326]/90 border border-amber-400/30 rounded-2xl sm:rounded-3xl p-5 sm:p-10 shadow-2xl backdrop-blur-xl"
         id="refund-policy"
       >
         <div className="flex items-center gap-3 mb-2">

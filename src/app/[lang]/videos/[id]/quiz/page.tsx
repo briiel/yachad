@@ -112,7 +112,7 @@ export default function EpisodeQuizPage({
       </nav>
 
       {/* Episode Header Banner */}
-      <header className="bg-gradient-to-r from-[#0c1936]/95 via-[#091326]/90 to-[#0c1936]/95 border border-amber-400/40 rounded-3xl p-5 sm:p-6 mb-8 shadow-2xl backdrop-blur-xl">
+      <header className="bg-gradient-to-r from-[#0c1936]/95 via-[#091326]/90 to-[#0c1936]/95 border border-amber-400/40 rounded-2xl sm:rounded-3xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-2xl backdrop-blur-xl">
         <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
           <div className="w-28 h-28 sm:w-32 sm:h-24 relative rounded-2xl overflow-hidden flex-shrink-0 shadow-lg border-2 border-amber-400/50">
             <Image
@@ -167,7 +167,7 @@ export default function EpisodeQuizPage({
         </section>
       ) : (
         /* Unlocked Interactive Quiz Arena */
-        <main className="bg-[#091326]/95 border border-amber-400/30 rounded-3xl p-5 sm:p-8 shadow-2xl backdrop-blur-xl">
+        <main className="bg-[#091326]/95 border border-amber-400/30 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-2xl backdrop-blur-xl">
           {/* Quiz Arena Header */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 mb-8 border-b border-white/10">
             <div className="flex items-center gap-3.5 text-center sm:text-start">
@@ -283,11 +283,10 @@ export default function EpisodeQuizPage({
           {/* Results Celebration Card */}
           {showResults && (
             <section
-              className={`p-6 sm:p-8 rounded-2xl text-center mb-8 border-2 shadow-2xl transition-all animate-fadeIn ${
-                score === questions.length
+              className={`p-6 sm:p-8 rounded-2xl text-center mb-8 border-2 shadow-2xl transition-all animate-fadeIn ${score === questions.length
                   ? 'bg-gradient-to-br from-emerald-950/80 via-slate-900 to-emerald-950/80 border-emerald-400 shadow-[0_0_35px_rgba(16,185,129,0.3)]'
                   : 'bg-gradient-to-br from-amber-950/80 via-slate-900 to-indigo-950/80 border-amber-400 shadow-[0_0_35px_rgba(245,158,11,0.3)]'
-              }`}
+                }`}
             >
               <div className="w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center shadow-lg bg-amber-400/20 text-amber-300 border-2 border-amber-400">
                 <Award size={36} />
@@ -302,11 +301,11 @@ export default function EpisodeQuizPage({
               <p className="text-sm sm:text-base font-bold text-amber-200 max-w-md mx-auto mb-6">
                 {score === questions.length
                   ? (lang === 'he'
-                      ? '✨ כל הכבוד! יישר כוח עצום, ענית נכון על כל השאלות!'
-                      : '✨ Yasher Koach! Outstanding work, you answered every question correctly!')
+                    ? '✨ כל הכבוד! יישר כוח עצום, ענית נכון על כל השאלות!'
+                    : '✨ Yasher Koach! Outstanding work, you answered every question correctly!')
                   : (lang === 'he'
-                      ? '👏 עבודה מצוינת! למדתם יפה על מידותיו הנעלות של הצדיק.'
-                      : '👏 Wonderful effort! You learned deeply about the holy tzaddik.')}
+                    ? '👏 עבודה מצוינת! למדתם יפה על מידותיו הנעלות של הצדיק.'
+                    : '👏 Wonderful effort! You learned deeply about the holy tzaddik.')}
               </p>
 
               <button
@@ -322,13 +321,12 @@ export default function EpisodeQuizPage({
 
           {/* Actions Bottom Bar */}
           <footer className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10">
-            <div>
+            <div className="w-full sm:w-auto">
               {!showResults ? (
                 <button
                   type="button"
-                  className={`inline-flex items-center justify-center gap-2.5 py-3.5 px-8 rounded-2xl font-black text-sm sm:text-base bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 shadow-xl transition-all cursor-pointer ${
-                    !allAnswered ? 'opacity-85' : 'hover:scale-105 active:scale-95'
-                  }`}
+                  className={`w-full sm:w-auto inline-flex items-center justify-center gap-2.5 py-3.5 px-8 min-h-[48px] rounded-2xl font-black text-sm sm:text-base bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 shadow-xl transition-all cursor-pointer ${!allAnswered ? 'opacity-85' : 'hover:scale-105 active:scale-95'
+                    }`}
                   onClick={() => setShowResults(true)}
                   id="check-answers-btn"
                 >
@@ -339,7 +337,7 @@ export default function EpisodeQuizPage({
                 <button
                   type="button"
                   onClick={handleResetQuiz}
-                  className="inline-flex items-center gap-2 py-3 px-6 rounded-2xl font-bold text-sm bg-white/10 hover:bg-white/20 border border-white/15 text-white transition-all cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-6 min-h-[46px] rounded-2xl font-bold text-sm bg-white/10 hover:bg-white/20 border border-white/15 text-white transition-all cursor-pointer"
                 >
                   <RotateCcw size={18} />
                   <span>{lang === 'he' ? 'איפוס חידון' : 'Reset Quiz'}</span>

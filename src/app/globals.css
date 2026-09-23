@@ -8,7 +8,7 @@
   --color-gold-500: #f59e0b;
   --color-gold-600: #d97706;
   --color-gold-700: #b45309;
-  
+
   --color-sapphire-950: #060c18;
   --color-sapphire-900: #0a1326;
   --color-sapphire-850: #0e1a35;
@@ -16,7 +16,7 @@
   --color-sapphire-700: #1b356c;
   --color-sapphire-600: #2563eb;
   --color-sapphire-500: #3b82f6;
-  
+
   --color-azure-300: #7dd3fc;
   --color-azure-400: #38bdf8;
   --color-azure-500: #0ea5e9;
@@ -33,25 +33,41 @@
 
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-hebrew: 'Assistant', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+
+  --breakpoint-xs: 30rem;
 }
 
 @layer base {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
   }
 
   html {
     scroll-behavior: smooth;
     color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     min-height: 100vh;
+    min-height: 100dvh;
     color: #f8fafc;
     background-color: #060c18;
     font-family: var(--font-sans);
     line-height: 1.6;
     overflow-x: hidden;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    touch-action: manipulation;
   }
 
   [dir="rtl"] {
@@ -61,8 +77,15 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.98); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .animate-fadeIn {
@@ -74,8 +97,13 @@
     background: #ffffff !important;
     color: #000000 !important;
   }
-  header, aside, footer, nav, button, .no-print {
+
+  header,
+  aside,
+  footer,
+  nav,
+  button,
+  .no-print {
     display: none !important;
   }
 }
-

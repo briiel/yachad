@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { usePaywall } from '@/context/PaywallContext';
 import { TRANSLATIONS, Language } from '@/data/content';
@@ -10,23 +10,34 @@ export default function PaywallModal({ lang }: { lang: Language }) {
   const { isPaywallOpen, closePaywall, paywallResource } = usePaywall();
   const t = TRANSLATIONS[lang].paywall;
 
+  // Close modal on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closePaywall();
+    };
+    if (isPaywallOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isPaywallOpen, closePaywall]);
+
   if (!isPaywallOpen) return null;
 
   return (
     <div
-      className="fixed inset-0 z-[2000] bg-[#060c18]/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn"
+      className="fixed inset-0 z-[2000] bg-[#060c18]/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn overscroll-contain"
       onClick={closePaywall}
       role="dialog"
       aria-modal="true"
     >
       <div
-        className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto bg-gradient-to-br from-[#0d1b38] via-[#091326] to-[#060c18] border-2 border-amber-400/70 rounded-3xl p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_50px_rgba(245,158,11,0.25)] text-center"
+        className="relative w-full max-w-lg max-h-[90dvh] overflow-y-auto bg-gradient-to-br from-[#0d1b38] via-[#091326] to-[#060c18] border-2 border-amber-400/70 rounded-3xl p-5 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_50px_rgba(245,158,11,0.25)] text-center"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           type="button"
           onClick={closePaywall}
-          className="absolute top-4 right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-rose-600 border border-white/15 text-white flex items-center justify-center transition-colors cursor-pointer z-10"
+          className="absolute top-3.5 sm:top-4 end-3.5 sm:end-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-rose-600 border border-white/15 text-white flex items-center justify-center transition-colors cursor-pointer z-10"
           aria-label={t.close}
         >
           <X size={18} />

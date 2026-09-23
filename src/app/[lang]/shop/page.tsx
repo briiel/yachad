@@ -35,7 +35,7 @@ export default function ShopPage({
       </div>
 
       {/* Category Landing Screen: Featured Category Banner/Card */}
-      <section className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 p-6 sm:p-10 md:p-12 rounded-3xl mb-12 sm:mb-16 border-2 border-amber-400/60 bg-gradient-to-br from-[#0c1936]/90 via-[#0a1326]/95 to-[#060c18]/95 shadow-[0_20px_50px_rgba(0,0,0,0.6),0_0_40px_rgba(245,158,11,0.2)] backdrop-blur-xl">
+      <section className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 p-5 sm:p-10 md:p-12 rounded-2xl sm:rounded-3xl mb-10 sm:mb-16 border-2 border-amber-400/60 bg-gradient-to-br from-[#0c1936]/90 via-[#0a1326]/95 to-[#060c18]/95 shadow-[0_20px_50px_rgba(0,0,0,0.6),0_0_40px_rgba(245,158,11,0.2)] backdrop-blur-xl">
         <div className="text-center md:text-start max-w-xl">
           <div className="inline-flex items-center gap-1.5 py-1 px-3.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 mb-3 sm:mb-4">
             <Sparkles size={14} />
@@ -53,7 +53,7 @@ export default function ShopPage({
           <button
             type="button"
             onClick={scrollToCatalog}
-            className="inline-flex items-center gap-2 py-3.5 px-6 rounded-xl font-black text-sm sm:text-base bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 shadow-xl hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 py-3.5 px-6 min-h-[44px] rounded-xl font-black text-sm sm:text-base bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 shadow-xl hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
             id="browse-comic-collection-btn"
           >
             <BookOpen size={18} />
@@ -129,7 +129,7 @@ export default function ShopPage({
                     {/* Purchase Button */}
                     <button
                       type="button"
-                      className="inline-flex items-center gap-1.5 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex-shrink-0"
+                      className="inline-flex items-center gap-1.5 py-2.5 px-4 min-h-[42px] rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex-shrink-0"
                       onClick={() => openComicCheckout(item)}
                     >
                       <ShoppingCart size={15} />

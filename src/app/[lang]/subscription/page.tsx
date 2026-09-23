@@ -114,7 +114,7 @@ export default function SubscriptionPage({
       {/* When user has an ACTIVE subscription: Show Active Membership Dashboard */}
       {isSubscriber ? (
         <div className="max-w-lg mx-auto mb-12 sm:mb-16">
-          <div className="relative bg-[#091326]/90 border-2 border-emerald-400/60 rounded-3xl p-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.6),0_0_40px_rgba(52,211,153,0.2)] backdrop-blur-xl">
+          <div className="relative bg-[#091326]/90 border-2 border-emerald-400/60 rounded-2xl sm:rounded-3xl p-5 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.6),0_0_40px_rgba(52,211,153,0.2)] backdrop-blur-xl">
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-400 to-teal-500 text-slate-950 font-black text-xs py-1.5 px-5 rounded-full shadow-lg whitespace-nowrap flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-slate-950 animate-pulse" />
               <span>{t.manage.activeBadge}</span>
@@ -178,7 +178,7 @@ export default function SubscriptionPage({
       ) : (
         /* When NOT Subscribed: Show Pricing Card */
         <div className="max-w-lg mx-auto mb-12 sm:mb-16">
-          <div className="relative bg-[#091326]/90 border-2 border-amber-400/60 rounded-3xl p-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.6),0_0_40px_rgba(245,158,11,0.2)] backdrop-blur-xl">
+          <div className="relative bg-[#091326]/90 border-2 border-amber-400/60 rounded-2xl sm:rounded-3xl p-5 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.6),0_0_40px_rgba(245,158,11,0.2)] backdrop-blur-xl">
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 font-black text-xs py-1.5 px-5 rounded-full shadow-lg whitespace-nowrap">
               {lang === 'he' ? 'המסלול המומלץ למשפחות' : 'Most Popular Choice'}
             </div>
@@ -225,7 +225,7 @@ export default function SubscriptionPage({
             </button>
 
             {/* Future Extension Slot */}
-            <div className="mt-8 pt-6 border-t border-white/10 bg-[#060c18]/40 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 p-6 rounded-b-3xl">
+            <div className="mt-8 pt-6 border-t border-white/10 bg-[#060c18]/40 -mx-5 sm:-mx-10 -mb-5 sm:-mb-10 p-5 sm:p-6 rounded-b-2xl sm:rounded-b-3xl">
               <div className="flex items-center justify-between gap-2 mb-1.5">
                 <span className="py-0.5 px-2.5 rounded-md text-[11px] font-black bg-sky-500/20 text-sky-300 border border-sky-500/30">
                   {t.premiumSlot.badge}
@@ -248,7 +248,7 @@ export default function SubscriptionPage({
       {/* Subscriber Intake Form */}
       {showForm && !isSubscriber && (
         <div
-          className="max-w-xl mx-auto bg-[#091326]/95 border-2 border-amber-400/50 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-xl mb-14 animate-fadeIn"
+          className="max-w-xl mx-auto bg-[#091326]/95 border-2 border-amber-400/50 rounded-2xl sm:rounded-3xl p-5 sm:p-10 shadow-2xl backdrop-blur-xl mb-14 animate-fadeIn"
           ref={formRef}
           id="intake-form-section"
         >

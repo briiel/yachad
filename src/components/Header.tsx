@@ -47,6 +47,21 @@ export default function Header({ lang }: { lang: Language }) {
     };
   }, [mobileMenuOpen]);
 
+  // Close mobile drawer on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false);
+      }
+    };
+    if (mobileMenuOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [mobileMenuOpen]);
+
   const logoSrc = lang === 'he' ? '/images/logo/logo-hebrew.jpeg' : '/images/logo/logo-english.jpeg';
 
   const navItems = [
@@ -95,7 +110,7 @@ export default function Header({ lang }: { lang: Language }) {
       <header className="sticky top-10 left-0 right-0 z-[900] h-18 sm:h-20 bg-[#081020]/85 backdrop-blur-xl border-b border-amber-400/30 shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex items-center transition-all">
         <div className="flex items-center justify-between w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Brand Official Logo & Title */}
-          <Link href={`/${lang}/videos`} className="flex items-center gap-2.5 sm:gap-3 group">
+          <Link href={`/${lang}/videos`} className="flex items-center gap-2 sm:gap-3 group min-w-0 flex-1 me-2 sm:me-4">
             <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-amber-400/60 shadow-[0_0_12px_rgba(245,158,11,0.4)] relative flex-shrink-0 group-hover:scale-105 transition-transform bg-slate-900">
               <Image
                 src={logoSrc}
@@ -106,11 +121,11 @@ export default function Header({ lang }: { lang: Language }) {
                 priority
               />
             </div>
-            <div className="flex flex-col">
-              <span className="text-sm sm:text-base lg:text-lg font-black leading-tight bg-gradient-to-r from-white via-amber-100 to-amber-300 bg-clip-text text-transparent">
+            <div className="flex flex-col min-w-0">
+              <span className="text-xs min-[360px]:text-sm sm:text-base lg:text-lg font-black leading-tight bg-gradient-to-r from-white via-amber-100 to-amber-300 bg-clip-text text-transparent truncate sm:whitespace-normal">
                 {t.siteTitle}
               </span>
-              <span className="text-[10px] sm:text-xs text-sky-200/70 font-semibold hidden xs:inline-block">
+              <span className="text-[10px] sm:text-xs text-sky-200/70 font-semibold hidden xs:inline-block truncate">
                 {t.siteSubtitle}
               </span>
             </div>
@@ -125,11 +140,10 @@ export default function Header({ lang }: { lang: Language }) {
                   <li key={item.id}>
                     <Link
                       href={item.href}
-                      className={`px-3.5 py-2 rounded-xl text-sm font-bold transition-all duration-200 ${
-                        isActive
+                      className={`px-3.5 py-2 rounded-xl text-sm font-bold transition-all duration-200 ${isActive
                           ? 'text-white bg-gradient-to-r from-amber-500/25 to-sky-500/15 border border-amber-400/50 shadow-[0_0_15px_rgba(245,158,11,0.25)]'
                           : 'text-slate-200 hover:text-amber-300 hover:bg-white/10 border border-transparent'
-                      }`}
+                        }`}
                     >
                       {item.label}
                     </Link>
@@ -140,11 +154,11 @@ export default function Header({ lang }: { lang: Language }) {
           </nav>
 
           {/* Header Actions: Language Switcher & Mobile Menu Trigger */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
             {/* Language Switcher - visible on all screens */}
             <Link
               href={alternateUrl}
-              className="flex items-center gap-1.5 text-xs sm:text-sm py-1.5 px-3 sm:px-4 rounded-xl bg-white/10 hover:bg-amber-500/15 border border-white/15 hover:border-amber-400/50 text-slate-200 hover:text-amber-300 font-bold transition-all shadow-sm"
+              className="flex items-center gap-1.5 text-xs sm:text-sm py-1.5 px-2.5 sm:px-4 min-h-[40px] rounded-xl bg-white/10 hover:bg-amber-500/15 border border-white/15 hover:border-amber-400/50 text-slate-200 hover:text-amber-300 font-bold transition-all shadow-sm"
               title={lang === 'en' ? 'החלף לעברית' : 'Switch to English'}
               id="header-lang-switch"
             >
@@ -161,7 +175,7 @@ export default function Header({ lang }: { lang: Language }) {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-all active:scale-95 cursor-pointer"
+              className="lg:hidden p-2 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-all active:scale-95 cursor-pointer"
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={mobileMenuOpen}
               id="mobile-menu-toggle"
@@ -187,11 +201,10 @@ export default function Header({ lang }: { lang: Language }) {
 
           {/* Drawer Panel: Aligned right in Hebrew (RTL), left in English (LTR) */}
           <aside
-            className={`fixed top-0 bottom-0 w-[82vw] max-w-[340px] bg-[#081020]/95 shadow-2xl backdrop-blur-2xl flex flex-col justify-between z-10 transition-transform duration-300 ease-out overflow-y-auto ${
-              lang === 'he'
+            className={`fixed top-0 bottom-0 w-[82vw] max-w-[340px] bg-[#081020]/95 shadow-2xl backdrop-blur-2xl flex flex-col justify-between z-10 transition-transform duration-300 ease-out overflow-y-auto ${lang === 'he'
                 ? 'right-0 border-l border-amber-400/30'
                 : 'left-0 border-r border-amber-400/30'
-            }`}
+              }`}
           >
             {/* Drawer Header */}
             <div>
@@ -237,19 +250,17 @@ export default function Header({ lang }: { lang: Language }) {
                         <Link
                           href={item.href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className={`flex items-center justify-between px-3.5 py-3 rounded-xl font-semibold text-sm transition-all duration-200 ${
-                            isActive
+                          className={`flex items-center justify-between px-3.5 py-3 rounded-xl font-semibold text-sm transition-all duration-200 ${isActive
                               ? 'bg-gradient-to-r from-amber-500/25 to-amber-600/15 text-amber-300 border border-amber-500/40 shadow-sm'
                               : 'text-slate-300 hover:text-white hover:bg-white/5 border border-transparent'
-                          }`}
+                            }`}
                         >
                           <div className="flex items-center gap-3">
                             <div
-                              className={`p-2 rounded-lg ${
-                                isActive
+                              className={`p-2 rounded-lg ${isActive
                                   ? 'bg-amber-500/30 text-amber-300'
                                   : 'bg-white/5 text-slate-400'
-                              }`}
+                                }`}
                             >
                               <Icon size={18} />
                             </div>
@@ -268,7 +279,7 @@ export default function Header({ lang }: { lang: Language }) {
             </div>
 
             {/* Drawer Footer Actions */}
-            <div className="p-4 border-t border-white/10 bg-slate-900/60 space-y-3">
+            <div className="p-4 pb-[max(1.25rem,env(safe-area-inset-bottom,0px))] border-t border-white/10 bg-slate-900/60 space-y-3">
               <Link
                 href={alternateUrl}
                 onClick={() => setMobileMenuOpen(false)}

@@ -74,7 +74,7 @@ export default function EpisodeCraftPage({
       </nav>
 
       {/* Episode Header Banner */}
-      <header className="bg-gradient-to-r from-[#0c1936]/95 via-[#091326]/90 to-[#0c1936]/95 border border-amber-400/40 rounded-3xl p-5 sm:p-6 mb-8 shadow-2xl backdrop-blur-xl">
+      <header className="bg-gradient-to-r from-[#0c1936]/95 via-[#091326]/90 to-[#0c1936]/95 border border-amber-400/40 rounded-2xl sm:rounded-3xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-2xl backdrop-blur-xl">
         <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
           <div className="w-28 h-28 sm:w-32 sm:h-24 relative rounded-2xl overflow-hidden flex-shrink-0 shadow-lg border-2 border-amber-400/50">
             <Image
@@ -138,7 +138,7 @@ export default function EpisodeCraftPage({
         <main className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column (5 Cols on lg): Physical Paper Canvas Easel */}
           <div className="lg:col-span-5 flex flex-col items-center">
-            <div className="relative group w-full max-w-[420px] bg-white rounded-3xl p-4 sm:p-5 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border-2 border-amber-400/70 transition-transform duration-300 hover:scale-[1.01]">
+            <div className="relative group w-full max-w-[380px] sm:max-w-[420px] bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border-2 border-amber-400/70 transition-transform duration-300 hover:scale-[1.01]">
               {/* Paper Format Tag */}
               <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-slate-200 text-slate-600 text-xs font-semibold">
                 <span className="flex items-center gap-1.5">
@@ -184,7 +184,7 @@ export default function EpisodeCraftPage({
           {/* Right Column (7 Cols on lg): Workshop Controls & Activity Guide */}
           <div className="lg:col-span-7 flex flex-col gap-6">
             {/* 1. Print & Download Hub Card */}
-            <div className="bg-[#091326]/95 border border-amber-400/35 rounded-3xl p-6 sm:p-7 shadow-xl backdrop-blur-xl">
+            <div className="bg-[#091326]/95 border border-amber-400/35 rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-xl backdrop-blur-xl">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center flex-shrink-0 border border-amber-400/30">
                   <Palette size={22} />
@@ -236,7 +236,7 @@ export default function EpisodeCraftPage({
             </div>
 
             {/* 2. Activity Guide & Story Connection */}
-            <div className="bg-[#091326]/90 border border-sky-400/25 rounded-3xl p-6 sm:p-7 shadow-xl">
+            <div className="bg-[#091326]/90 border border-sky-400/25 rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-xl">
               <h3 className="text-base sm:text-lg font-bold text-white mb-3 flex items-center gap-2">
                 <Sparkles size={18} className="text-amber-400" />
                 <span>{lang === 'he' ? 'על פעילות היצירה והערכים' : 'About this Craft & Values'}</span>

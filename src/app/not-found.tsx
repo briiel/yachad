@@ -4,7 +4,7 @@ import { Sparkles, Home } from 'lucide-react';
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen flex items-center justify-center p-6 text-center text-white relative overflow-hidden bg-[#060c18]">
+    <main className="min-h-[100dvh] flex items-center justify-center p-4 sm:p-6 text-center text-white relative overflow-hidden bg-[#060c18]">
       {/* Consistent Background */}
       <div
         className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat scale-[1.01]"
@@ -12,7 +12,7 @@ export default function NotFound() {
       />
       <div className="fixed inset-0 -z-10 bg-gradient-to-b from-[#060c18]/40 via-[#0a1326]/55 to-[#060c18]/70 pointer-events-none" />
 
-      <div className="max-w-md mx-auto p-8 rounded-3xl bg-[#091224]/85 border-2 border-amber-400/50 shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(245,158,11,0.2)] backdrop-blur-xl relative z-10">
+      <div className="max-w-md w-full mx-auto p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#091224]/85 border-2 border-amber-400/50 shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(245,158,11,0.2)] backdrop-blur-xl relative z-10">
         <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 text-slate-950 flex items-center justify-center mx-auto mb-4 border border-white/30 shadow-lg">
           <Sparkles size={32} />
         </div>

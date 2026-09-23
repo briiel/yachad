@@ -9,7 +9,7 @@ export default function SplashPage() {
   const [activeHover, setActiveHover] = useState<'none' | 'en' | 'he'>('none');
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 text-center relative overflow-hidden bg-[#050a14]">
+    <main className="min-h-[100dvh] flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 text-center relative overflow-hidden bg-[#050a14]">
       {/* Master Background (Crisp & Sharp - Blur removed) */}
       <div
         className="fixed inset-0 -z-20 bg-cover bg-[center_top_6%] sm:bg-center bg-no-repeat scale-[1.01]"
@@ -22,12 +22,11 @@ export default function SplashPage() {
       {/* Main Container - No extra text, only the image and the 2 language buttons */}
       <div className="w-full max-w-2xl flex flex-col items-center justify-center relative z-10 animate-fadeIn my-auto">
         {/* Prominent Official Artwork Image Container */}
-        <div className="w-full aspect-[16/9] max-w-xl relative rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.85),0_0_40px_rgba(245,158,11,0.35)] border-2 border-amber-400/70 mb-6 sm:mb-8 group transition-transform duration-300 hover:scale-[1.01]">
+        <div className="w-full aspect-[16/9] max-w-xl relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.85),0_0_40px_rgba(245,158,11,0.35)] border-2 border-amber-400/70 mb-5 sm:mb-8 group transition-transform duration-300 hover:scale-[1.01]">
           {/* Hebrew Version Image */}
           <div
-            className={`absolute inset-0 transition-opacity duration-500 ${
-              activeHover === 'en' ? 'opacity-0 pointer-events-none' : 'opacity-100'
-            }`}
+            className={`absolute inset-0 transition-opacity duration-500 ${activeHover === 'en' ? 'opacity-0 pointer-events-none' : 'opacity-100'
+              }`}
           >
             <Image
               src="/images/logo/logo-hebrew.jpeg"
@@ -41,9 +40,8 @@ export default function SplashPage() {
 
           {/* English Version Image */}
           <div
-            className={`absolute inset-0 transition-opacity duration-500 ${
-              activeHover === 'en' ? 'opacity-100' : 'opacity-0 pointer-events-none'
-            }`}
+            className={`absolute inset-0 transition-opacity duration-500 ${activeHover === 'en' ? 'opacity-100' : 'opacity-0 pointer-events-none'
+              }`}
           >
             <Image
               src="/images/logo/logo-english.jpeg"
